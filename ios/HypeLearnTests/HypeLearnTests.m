@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface learningAppTests : XCTestCase
+@interface HypeLearnTests : XCTestCase
 
 @end
 
-@implementation learningAppTests
+@implementation HypeLearnTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {
