@@ -1,4 +1,6 @@
-import Bugsnag from "@bugsnag/react-native";
+import Bugsnag from '@bugsnag/react-native';
+import 'react-native-gesture-handler';
+
 Bugsnag.start();
 
 /**
