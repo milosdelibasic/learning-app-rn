@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -25,6 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Config from 'react-native-config';
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -58,6 +59,8 @@ const App: () => Node = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  console.log(Config.ENVIRONMENT);
 
   return (
     <SafeAreaView style={backgroundStyle}>
