@@ -6,9 +6,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {navigationRef} from './src/navigation/RootNavigation';
 import {Provider} from 'react-redux';
 import RootSwitch from './src/navigation/RootSwitch';
-import {configureStore} from '@reduxjs/toolkit';
+import configureStore from './config-store';
 
-// const {store} = configureStore();
+const {store} = configureStore();
 
 const App = () => {
   useEffect(() => {
@@ -18,9 +18,9 @@ const App = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       <View style={{flex: 1}}>
-        {/* <Provider store={store}> */}
-        <RootSwitch />
-        {/* </Provider> */}
+        <Provider store={store}>
+          <RootSwitch />
+        </Provider>
       </View>
     </NavigationContainer>
   );
