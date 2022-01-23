@@ -8,6 +8,15 @@ export const mainStack = {
   profile: 'ProfileStack',
 };
 
+export const authStack = {
+  authInit: 'AuthInitScreen',
+  login: 'LoginScreen',
+  register: 'RegisterScreen',
+  forgotPassword: 'ForgotPasswordScreen',
+  checkEmail: 'CheckEmailScreen',
+  about: 'AboutScreen',
+};
+
 export const homeStack = {
   home: 'HomeScreen',
 };
