@@ -1,26 +1,30 @@
 export const rootSwitch = {
-  auth: 'AuthStack',
-  main: 'MainStack',
+  auth: "AuthStack",
+  main: "MainStack",
 };
 
 export const mainStack = {
-  home: 'HomeStack',
-  profile: 'ProfileStack',
+  home: "HomeStack",
+  profile: "ProfileStack",
 };
 
 export const authStack = {
-  authInit: 'AuthInitScreen',
-  login: 'LoginScreen',
-  register: 'RegisterScreen',
-  forgotPassword: 'ForgotPasswordScreen',
-  checkEmail: 'CheckEmailScreen',
-  about: 'AboutScreen',
+  authInit: "AuthInitScreen",
+  login: "LoginScreen",
+  register: "RegisterScreen",
+  forgotPassword: "ForgotPasswordScreen",
+  checkEmail: "CheckEmailScreen",
+  about: "AboutScreen",
 };
 
 export const homeStack = {
-  home: 'HomeScreen',
+  home: "HomeScreen",
+  profile: "ProfileScreen",
+  learn: "LearnScreen",
+  community: "CommunityScreen",
+  coding: "CodingScreen",
 };
 
 export const profileStack = {
-  profile: 'ProfileScreen',
+  profile: "ProfileScreen",
 };

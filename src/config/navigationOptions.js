@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   StyleSheet,
   Dimensions,
@@ -6,75 +6,106 @@ import {
   TouchableOpacity,
   Image,
   Pressable,
-} from 'react-native';
-import {padding} from '../config/spacing';
-import Text from '../components/text';
-import * as RootNavigation from '../navigation/RootNavigation';
-import {mainStack, profileStack} from './navigator';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import {hitBox20} from '../config/helpers';
-import {gray500, gray800, gray900} from './colors';
+} from "react-native";
+import { padding } from "../config/spacing";
+import Text from "../components/text";
+import * as RootNavigation from "../navigation/RootNavigation";
+import { mainStack, profileStack } from "./navigator";
+import Icon from "react-native-vector-icons/Ionicons";
+import { hitBox20 } from "../config/helpers";
+import {
+  gray100,
+  gray200,
+  gray300,
+  gray400,
+  gray50,
+  gray500,
+  gray800,
+  gray900,
+  grayDark,
+} from "./colors";
 
-const {width, height} = Dimensions.get('screen');
+const { width, height } = Dimensions.get("screen");
+
+export const injectStore = _store => {
+  const { auth } = _store.getState();
+  console.log("🚀 ~ file: navigationOptions.js ~ line 33 ~ store", auth);
+};
+
+// console.log("store", store);
 
 export const mainOptions = {
   headerShown: true,
   headerStyle: {
     backgroundColor: gray900,
     height: height / 12,
-    elevation: 0,
-    shadowOpacity: 0,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 10,
   },
   headerShadowVisible: false,
   headerTitle: () => (
-    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+    <View style={{ flexDirection: "row", alignItems: "center" }}>
       {/* <Logo width={width / 3} height={height / 18} /> */}
+      <Text white h5 bold>
+        HypeLearn
+      </Text>
     </View>
   ),
   headerLeft: () => (
     <TouchableOpacity
       hitSlop={hitBox20}
       onPress={() => RootNavigation.navigate(mainStack.profile)}>
-      <Icon name="menu" size={30} color={gray900} />
+      <Icon name="menu-outline" size={30} color={gray50} />
     </TouchableOpacity>
   ),
   headerRight: () => <View></View>,
   headerLeftContainerStyle: {
-    paddingLeft: padding.big,
+    paddingLeft: padding.large,
     flex: 1,
   },
   headerRightContainerStyle: {
-    paddingRight: padding.big,
+    paddingRight: padding.large,
     flex: 1,
   },
   headerTitleContainerStyle: {
     flex: 2,
-    alignItems: 'center',
+    alignItems: "center",
   },
 };
 
 export const tab = {
   tabBarStyle: {
-    height: height / 15,
+    height: height / 11.5,
     paddingBottom: 10,
-    backgroundColor: gray800,
-    borderTopColor: gray800,
+    paddingTop: 10,
+    backgroundColor: gray900,
+    borderTopColor: gray900,
+    position: "absolute",
+    bottom: 25,
+    left: padding.big / 1.3,
+    right: padding.big / 1.3,
+    borderRadius: 25,
   },
-  tabBarLabelPosition: 'below-icon',
+  tabBarItemStyle: {},
+
+  tabBarActiveTintColor: gray50,
+  tabBarInactiveTintColor: gray400,
   tabBarLabelStyle: {
-    backgroundColor: gray800,
-  },
-  tabBarActiveTintColor: gray900,
-  tabBarInactiveTintColor: gray800,
-  tabBarLabelStyle: {
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
   },
   tabBarButton: props => (
     <Pressable
       android_ripple={{
-        color: gray500,
+        color: gray300,
         borderless: true,
-        radius: width / 4.5,
+        radius: width / 8,
       }}
       {...props}
     />
