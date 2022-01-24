@@ -8,7 +8,7 @@ import RootSwitch from "./src/navigation/RootSwitch";
 import configureStore from "./config-store";
 import Toast from "react-native-toast-message";
 import { toastConfig } from "./src/config/toast";
-import { injectStore } from "./src/config/navigationOptions";
+import { injectStore } from "./src/modules/axiosConfig";
 
 const { store } = configureStore();
 

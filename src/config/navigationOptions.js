@@ -27,11 +27,6 @@ import {
 
 const { width, height } = Dimensions.get("screen");
 
-export const injectStore = _store => {
-  const { auth } = _store.getState();
-  console.log("🚀 ~ file: navigationOptions.js ~ line 33 ~ store", auth);
-};
-
 // console.log("store", store);
 
 export const mainOptions = {

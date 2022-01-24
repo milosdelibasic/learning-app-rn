@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLogin: false,
@@ -7,9 +7,15 @@ const initialState = {
 };
 
 export const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {
+    register: state => {
+      state.pending = true;
+    },
+    registerSuccess: state => {
+      state.pending = false;
+    },
     isLogin: state => {
       state.pending = true;
     },
@@ -21,11 +27,14 @@ export const authSlice = createSlice({
       state.pending = false;
       state.user = action.payload;
     },
+    failed: state => {
+      state.pending = false;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {actions} = authSlice;
+export const { actions } = authSlice;
 
 export const authSelector = state => state.auth;
 
