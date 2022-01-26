@@ -1,10 +1,10 @@
-import React from 'react';
-import {StyleSheet, Text as NativeText} from 'react-native';
-import {gray200, gray400, gray50} from '../../config/colors';
-import fonts, {sizes} from '../../config/fonts';
-import {lineHeight} from '../../config/spacing';
+import React from "react";
+import { StyleSheet, Text as NativeText } from "react-native";
+import { gray200, gray400, gray50, gray900 } from "../../config/colors";
+import fonts, { sizes } from "../../config/fonts";
+import { lineHeight } from "../../config/spacing";
 
-const getSize = ({h1, h2, h3, h4, h5, h6}) => {
+const getSize = ({ h1, h2, h3, h4, h5, h6 }) => {
   const sizeStyles = [];
 
   if (h1) {
@@ -87,8 +87,8 @@ const Text = ({
   numberOfLines,
   ...rest
 }) => {
-  const sizeStyles = getSize({h1, h2, h3, h4, h5, h6});
-  const textStyles = getStyles({...rest});
+  const sizeStyles = getSize({ h1, h2, h3, h4, h5, h6 });
+  const textStyles = getStyles({ ...rest });
 
   return (
     <NativeText
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.boldOpen.fontFamily,
   },
   center: {
-    textAlign: 'center',
+    textAlign: "center",
   },
   h1: {
     fontSize: sizes.h1,
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     color: gray50,
   },
   secondary: {
-    color: gray200,
+    color: gray900,
   },
   tertiary: {
     color: gray400,
@@ -139,10 +139,10 @@ const styles = StyleSheet.create({
     fontFamily: fonts.regularOpen.fontFamily,
   },
   uppercase: {
-    textTransform: 'uppercase',
+    textTransform: "uppercase",
   },
   warning: {
-    color: '#B40025',
+    color: "#B40025",
   },
   white: {
     color: gray50,
