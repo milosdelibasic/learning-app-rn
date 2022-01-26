@@ -35,7 +35,7 @@ const ContinueLearningCard = ({
         />
         <View style={styles.innerContainer}>
           <Column spacing="space-between">
-            <Text h4 bold secondary>
+            <Text h4 bold secondary numberOfLines={1}>
               {name}
             </Text>
             <View style={styles.spacing}>
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     backgroundColor: gray200,
     borderRadius: borderRadius.large * 1.3,
     width: width / 1.5,
+    height: width / 3.5,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

@@ -7,6 +7,7 @@ import { padding } from "../../config/spacing";
 import { authSelector } from "../../modules/auth/reducer";
 import ContinueLearningCard from "../../components/continueLearningCard";
 import Row from "../../components/row";
+import FeaturedCourseCard from "../../components/featuredCourseCard";
 
 const Home = () => {
   const { user } = useSelector(authSelector);
@@ -45,6 +46,18 @@ const Home = () => {
           </TouchableOpacity>
         </Row>
       </View>
+      <ScrollView
+        style={styles.continueLearningContainer}
+        horizontal
+        showsHorizontalScrollIndicator={false}>
+        <FeaturedCourseCard
+          name="JavaScript"
+          image="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png"
+        />
+        <FeaturedCourseCard />
+        <FeaturedCourseCard />
+        <FeaturedCourseCard last />
+      </ScrollView>
     </ScrollView>
   );
 };
