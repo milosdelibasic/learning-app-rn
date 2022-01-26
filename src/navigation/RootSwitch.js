@@ -24,7 +24,7 @@ const RootSwitch = ({}) => {
 
   return (
     <Stack.Navigator screenOptions={noHeader}>
-      {!isLogin ? (
+      {isLogin ? (
         <Stack.Screen
           screenOptions={{ headerShown: false, animationEnabled: false }}
           name={rootSwitch.main}

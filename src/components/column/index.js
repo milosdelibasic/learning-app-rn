@@ -4,7 +4,7 @@ import React from "react";
 const Column = ({
   style,
   children,
-  spacing = "space-between",
+  spacing = "flex-start",
   align = "flex-start",
 }) => {
   return (
@@ -23,7 +23,7 @@ export default Column;
 
 const styles = StyleSheet.create({
   column: {
+    height: "100%",
     flexDirection: "column",
-    justifyContent: "center",
   },
 });

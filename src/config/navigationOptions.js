@@ -1,29 +1,13 @@
 import React from "react";
-import {
-  StyleSheet,
-  Dimensions,
-  View,
-  TouchableOpacity,
-  Image,
-  Pressable,
-} from "react-native";
+import { Dimensions, View, TouchableOpacity, Pressable } from "react-native";
 import { padding } from "../config/spacing";
 import Text from "../components/text";
 import * as RootNavigation from "../navigation/RootNavigation";
 import { mainStack, profileStack } from "./navigator";
 import Icon from "react-native-vector-icons/Ionicons";
+import MaterialIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { hitBox20 } from "../config/helpers";
-import {
-  gray100,
-  gray200,
-  gray300,
-  gray400,
-  gray50,
-  gray500,
-  gray800,
-  gray900,
-  grayDark,
-} from "./colors";
+import { gray300, gray400, gray50, gray800, gray900, grayDark } from "./colors";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -33,7 +17,6 @@ export const mainOptions = {
   headerShown: true,
   headerStyle: {
     backgroundColor: gray900,
-    height: height / 12,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -44,7 +27,7 @@ export const mainOptions = {
 
     elevation: 10,
   },
-  headerShadowVisible: false,
+  headerShadowVisible: true,
   headerTitle: () => (
     <View style={{ flexDirection: "row", alignItems: "center" }}>
       {/* <Logo width={width / 3} height={height / 18} /> */}
@@ -54,13 +37,15 @@ export const mainOptions = {
     </View>
   ),
   headerLeft: () => (
-    <TouchableOpacity
-      hitSlop={hitBox20}
-      onPress={() => RootNavigation.navigate(mainStack.profile)}>
+    <TouchableOpacity hitSlop={hitBox20} onPress={() => {}}>
       <Icon name="menu-outline" size={30} color={gray50} />
     </TouchableOpacity>
   ),
-  headerRight: () => <View></View>,
+  headerRight: () => (
+    <TouchableOpacity hitSlop={hitBox20} onPress={() => {}}>
+      <MaterialIcon name="dots-vertical" size={30} color={gray50} />
+    </TouchableOpacity>
+  ),
   headerLeftContainerStyle: {
     paddingLeft: padding.large,
     flex: 1,
