@@ -1,9 +1,14 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
-import { noHeader } from "../config/navigationOptions";
+import {
+  backOptions,
+  mainOptions,
+  noHeader,
+} from "../config/navigationOptions";
 import { homeStack, mainStack } from "../config/navigator";
 import HomeStack from "./HomeStack";
 import { createStackNavigator } from "@react-navigation/stack";
+import CourseInfo from "../screens/courses/courseInfo";
 
 const Stack = createStackNavigator();
 const { width, height } = Dimensions.get("screen");
@@ -11,8 +16,18 @@ const MainStack = ({}) => {
   return (
     <Stack.Navigator
       initialRouteName={mainStack.home}
-      screenOptions={{ headerShown: false, animationEnabled: false }}>
+      screenOptions={{
+        headerShown: false,
+        animationEnabled: false,
+        detachPreviousScreen: false,
+        gestureEnabled: true,
+      }}>
       <Stack.Screen name={mainStack.home} component={HomeStack} />
+      <Stack.Screen
+        name={mainStack.courseInfo}
+        component={CourseInfo}
+        options={noHeader}
+      />
     </Stack.Navigator>
   );
 };

@@ -9,26 +9,30 @@ import Icon from "react-native-vector-icons/Ionicons";
 import Row from "../row";
 import { sizes } from "../../config/fonts";
 import Button from "../button";
+import { mainStack } from "../../config/navigator";
+import { useNavigation } from "@react-navigation/native";
 
 const { width } = Dimensions.get("screen");
 
-const FeaturedCourseCard = ({
-  last = false,
-  image = "https://res.cloudinary.com/practicaldev/image/fetch/s--Z0wY_Kg2--/c_imagga_scale,f_auto,fl_progressive,h_720,q_auto,w_1280/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pdib9r9rk5j1m7oala1p.png",
-  name = "React",
-  onPress = () => console.log(name),
-}) => {
+const defaultImage =
+  "https://res.cloudinary.com/practicaldev/image/fetch/s--Z0wY_Kg2--/c_imagga_scale,f_auto,fl_progressive,h_720,q_auto,w_1280/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pdib9r9rk5j1m7oala1p.png";
+
+const FeaturedCourseCard = ({ last, course }) => {
+  const navigation = useNavigation();
+
+  const handlePress = () =>
+    navigation.navigate(mainStack.courseInfo, { course, defaultImage });
   return (
     <TouchableOpacity
       style={[
         styles.container,
         { marginRight: last ? margin.large * 2 : margin.large },
       ]}
-      onPress={onPress}>
+      onPress={handlePress}>
       <FastImage
         style={styles.logo}
         source={{
-          uri: image,
+          uri: course?.cardImage || defaultImage,
         }}
         resizeMode={FastImage.resizeMode.cover}>
         <Row style={styles.rating}>
@@ -39,13 +43,13 @@ const FeaturedCourseCard = ({
             style={styles.star}
           />
           <Text bold primary h6>
-            4.5
+            {course?.rating}
           </Text>
         </Row>
       </FastImage>
       <View style={styles.innerContainer}>
         <Text bold secondary h4 numberOfLines={1} style={styles.text}>
-          {name}
+          {course?.title}
         </Text>
         <Row spacing="flex-start" style={styles.spacing}>
           <Icon
@@ -55,14 +59,14 @@ const FeaturedCourseCard = ({
             style={styles.star}
           />
           <Text h6 secondary>
-            120 students
+            {course?.students} student{+course?.students > 0 ? "s" : ""}
           </Text>
         </Row>
         <Button
           label="More"
           primary
           small
-          onPress={onPress}
+          onPress={handlePress}
           style={styles.button}
         />
       </View>

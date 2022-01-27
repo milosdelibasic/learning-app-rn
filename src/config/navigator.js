@@ -6,6 +6,7 @@ export const rootSwitch = {
 export const mainStack = {
   home: "HomeStack",
   profile: "ProfileStack",
+  courseInfo: "CourseInfoScreen",
 };
 
 export const authStack = {

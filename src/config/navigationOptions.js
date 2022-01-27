@@ -27,6 +27,9 @@ export const mainOptions = {
 
     elevation: 10,
   },
+  cardStyle: {
+    backgroundColor: gray900,
+  },
   headerShadowVisible: true,
   headerTitle: () => (
     <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -58,6 +61,16 @@ export const mainOptions = {
     flex: 2,
     alignItems: "center",
   },
+};
+
+export const backOptions = {
+  headerLeft: () => (
+    <TouchableOpacity
+      hitSlop={hitBox20}
+      onPress={() => RootNavigation.goBack()}>
+      <Icon name="md-arrow-back" size={30} color={gray50} />
+    </TouchableOpacity>
+  ),
 };
 
 export const tab = {

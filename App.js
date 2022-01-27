@@ -9,8 +9,11 @@ import configureStore from "./config-store";
 import Toast from "react-native-toast-message";
 import { toastConfig } from "./src/config/toast";
 import { injectStore } from "./src/modules/axiosConfig";
-
+import { gray900 } from "./src/config/colors";
+import { enableScreens } from "react-native-screens";
 const { store } = configureStore();
+
+enableScreens(true);
 
 injectStore(store); //for using store outside functional components
 
@@ -20,14 +23,14 @@ const App = () => {
   }, []);
 
   return (
-    <NavigationContainer ref={navigationRef}>
-      <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: gray900 }}>
+      <NavigationContainer ref={navigationRef}>
         <Provider store={store}>
           <RootSwitch />
           <Toast config={toastConfig} />
         </Provider>
-      </View>
-    </NavigationContainer>
+      </NavigationContainer>
+    </View>
   );
 };
 
