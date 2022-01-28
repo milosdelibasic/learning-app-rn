@@ -15,20 +15,12 @@ import ContinueLearningCard from "../../components/continueLearningCard";
 import Row from "../../components/row";
 import FeaturedCourseCard from "../../components/featuredCourseCard";
 import { featuredCourses } from "../../dummyData/featuredCourses";
+import ContinueLearningContainer from "../../components/containers/continueLearningContainer";
+import FeaturedCoursesContainer from "../../components/containers/featuredCoursesContainer";
 const { width } = Dimensions.get("screen");
-
-//ContinueLearning card snapping logic
-const cardWidth = width / 1.5;
-const cardContent = [1, 2, 3, 4, 5];
-const halfGap = margin.large;
-//End
 
 const Home = ({ navigation }) => {
   const { user } = useSelector(authSelector);
-
-  const snapOffsets = cardContent.map((_, index) => {
-    return cardWidth * index + halfGap * index;
-  });
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
@@ -43,21 +35,7 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
         </Row>
       </View>
-      <ScrollView
-        style={styles.continueLearningContainer}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        snapToOffsets={snapOffsets}>
-        <ContinueLearningCard progress={0.2} />
-        <ContinueLearningCard
-          name="JavaScript"
-          image="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png"
-          progress={0.666}
-        />
-        <ContinueLearningCard progress={1} />
-        <ContinueLearningCard />
-        <ContinueLearningCard progress={0.9} last />
-      </ScrollView>
+      <ContinueLearningContainer />
       <View style={styles.paddingContainer}>
         <Row style={styles.row}>
           <Text>Featured Courses</Text>
@@ -66,18 +44,7 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
         </Row>
       </View>
-      <ScrollView
-        style={styles.continueLearningContainer}
-        horizontal
-        showsHorizontalScrollIndicator={false}>
-        {featuredCourses?.map((course, i) => (
-          <FeaturedCourseCard
-            key={course?._id}
-            last={featuredCourses?.length === i + 1}
-            course={course}
-          />
-        ))}
-      </ScrollView>
+      <FeaturedCoursesContainer />
     </ScrollView>
   );
 };
@@ -89,9 +56,6 @@ const styles = StyleSheet.create({
   },
   paddingContainer: {
     padding: padding.large,
-  },
-  continueLearningContainer: {
-    paddingHorizontal: padding.large,
   },
   row: {
     paddingTop: padding.base,

@@ -12,13 +12,7 @@ import Button from "../button";
 
 const { width } = Dimensions.get("screen");
 
-const ContinueLearningCard = ({
-  image = "https://res.cloudinary.com/practicaldev/image/fetch/s--Z0wY_Kg2--/c_imagga_scale,f_auto,fl_progressive,h_720,q_auto,w_1280/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pdib9r9rk5j1m7oala1p.png",
-  last = false,
-  progress = 0.4,
-  name = "React",
-  onPress = () => {},
-}) => {
+const ContinueLearningCard = ({ course, last, onPress }) => {
   return (
     <View
       style={[
@@ -29,21 +23,21 @@ const ContinueLearningCard = ({
         <FastImage
           style={styles.logo}
           source={{
-            uri: image,
+            uri: course?.cardImage,
           }}
           resizeMode={FastImage.resizeMode.cover}
         />
         <View style={styles.innerContainer}>
           <Column spacing="space-between">
             <Text h4 bold secondary numberOfLines={1}>
-              {name}
+              {course?.title}
             </Text>
             <View style={styles.spacing}>
               <Text secondary bold h6 style={styles.progressText}>
-                {Number(progress * 100).toFixed(0)} %
+                {Number(course?.progress * 100).toFixed(0)} %
               </Text>
               <ProgressBar
-                progress={progress}
+                progress={course?.progress}
                 color={grayDark}
                 style={styles.progress}
               />
