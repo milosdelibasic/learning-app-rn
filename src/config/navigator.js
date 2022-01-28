@@ -7,6 +7,7 @@ export const mainStack = {
   home: "HomeStack",
   profile: "ProfileStack",
   courseInfo: "CourseInfoScreen",
+  featuredCourses: "FeaturedCoursesScreen",
 };
 
 export const authStack = {

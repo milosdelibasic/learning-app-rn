@@ -9,6 +9,7 @@ import { homeStack, mainStack } from "../config/navigator";
 import HomeStack from "./HomeStack";
 import { createStackNavigator } from "@react-navigation/stack";
 import CourseInfo from "../screens/courses/courseInfo";
+import FeaturedCourses from "../screens/courses/featuredCourses";
 
 const Stack = createStackNavigator();
 const { width, height } = Dimensions.get("screen");
@@ -27,6 +28,11 @@ const MainStack = ({}) => {
         name={mainStack.courseInfo}
         component={CourseInfo}
         options={noHeader}
+      />
+      <Stack.Screen
+        name={mainStack.featuredCourses}
+        component={FeaturedCourses}
+        // options={noHeader}
       />
     </Stack.Navigator>
   );

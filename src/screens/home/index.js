@@ -17,6 +17,7 @@ import FeaturedCourseCard from "../../components/featuredCourseCard";
 import { featuredCourses } from "../../dummyData/featuredCourses";
 import ContinueLearningContainer from "../../components/containers/continueLearningContainer";
 import FeaturedCoursesContainer from "../../components/containers/featuredCoursesContainer";
+import { mainStack } from "../../config/navigator";
 const { width } = Dimensions.get("screen");
 
 const Home = ({ navigation }) => {
@@ -39,7 +40,8 @@ const Home = ({ navigation }) => {
       <View style={styles.paddingContainer}>
         <Row style={styles.row}>
           <Text>Featured Courses</Text>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(mainStack.featuredCourses)}>
             <Text>See all</Text>
           </TouchableOpacity>
         </Row>
