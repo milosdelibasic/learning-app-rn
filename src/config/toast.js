@@ -4,14 +4,10 @@ import { gray100, gray50, gray900, success, warning } from "./colors";
 import fonts, { sizes } from "./fonts";
 
 export const toastConfig = {
-  /*
-    Overwrite 'success' type,
-    by modifying the existing `BaseToast` component
-  */
   success: props => (
     <BaseToast
       {...props}
-      style={{ borderLeftColor: success }}
+      style={{ borderLeftColor: success, backgroundColor: gray50 }}
       contentContainerStyle={{ paddingHorizontal: 15 }}
       text1Style={{
         fontSize: sizes.h5,
@@ -25,10 +21,6 @@ export const toastConfig = {
       }}
     />
   ),
-  /*
-    Overwrite 'error' type,
-    by modifying the existing `ErrorToast` component
-  */
   error: props => (
     <ErrorToast
       {...props}

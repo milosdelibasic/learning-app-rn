@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text as NativeText } from "react-native";
-import { gray200, gray400, gray50, gray900 } from "../../config/colors";
+import { gray400, gray50, gray900 } from "../../config/colors";
 import fonts, { sizes } from "../../config/fonts";
 import { lineHeight } from "../../config/spacing";
 
@@ -37,11 +37,13 @@ const getStyles = rest => {
     tertiary,
     gray,
     bold,
+    semiBold,
     uppercase,
     primary,
     secondary,
     center,
     warning,
+    link,
   } = rest;
 
   if (center) {
@@ -59,6 +61,9 @@ const getStyles = rest => {
   if (white) {
     containerStyles.push(styles.white);
   }
+  if (link) {
+    containerStyles.push(styles.link);
+  }
   if (tertiary) {
     containerStyles.push(styles.tertiary);
   }
@@ -67,6 +72,9 @@ const getStyles = rest => {
   }
   if (bold) {
     containerStyles.push(styles.bold);
+  }
+  if (semiBold) {
+    containerStyles.push(styles.semiBold);
   }
   if (uppercase) {
     containerStyles.push(styles.uppercase);
@@ -85,6 +93,7 @@ const Text = ({
   children,
   style,
   numberOfLines,
+  onPress,
   ...rest
 }) => {
   const sizeStyles = getSize({ h1, h2, h3, h4, h5, h6 });
@@ -93,7 +102,8 @@ const Text = ({
   return (
     <NativeText
       numberOfLines={numberOfLines}
-      style={StyleSheet.flatten([styles.text, sizeStyles, textStyles, style])}>
+      style={StyleSheet.flatten([styles.text, sizeStyles, textStyles, style])}
+      onPress={onPress}>
       {children}
     </NativeText>
   );
@@ -102,6 +112,9 @@ const Text = ({
 const styles = StyleSheet.create({
   bold: {
     fontFamily: fonts.boldOpen.fontFamily,
+  },
+  semiBold: {
+    fontFamily: fonts.semiBoldOpen.fontFamily,
   },
   center: {
     textAlign: "center",
@@ -146,6 +159,9 @@ const styles = StyleSheet.create({
   },
   white: {
     color: gray50,
+  },
+  link: {
+    color: gray400,
   },
 });
 

@@ -3,11 +3,12 @@ import Toast from "react-native-toast-message";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export async function handleError(e) {
-  Toast.show({
-    type: "error",
-    text1: e?.message,
-    visibilityTime: 5000,
-  });
+  !e?.hide &&
+    Toast.show({
+      type: "error",
+      text1: e?.message,
+      visibilityTime: e?.visibility || 5000,
+    });
 
   const data = await AsyncStorage.getItem("data");
   const parsed = JSON.parse(data);
@@ -16,7 +17,7 @@ export async function handleError(e) {
   }. ${parsed?._id ? `userId: ${parsed?._id}` : ""} ${
     e?.additional ? "Additional info: " + e?.additional : ""
   }`;
-  Bugsnag.notify(new Error(error));
+  !e?.dontUpload && Bugsnag.notify(new Error(error));
   __DEV__ && console.error(error);
 }
 
@@ -24,6 +25,6 @@ export async function handleSuccess(e) {
   Toast.show({
     type: "success",
     text1: e?.message,
-    visibilityTime: 5000,
+    visibilityTime: e?.visibility || 5000,
   });
 }

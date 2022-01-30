@@ -16,8 +16,15 @@ import fonts, { verticalScale } from "../../../config/fonts";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import CourseOverview from "./courseOverview";
 import CourseContent from "./courseContent";
+import Row from "../../../components/row";
+import Share from "react-native-share";
+import { handleError } from "../../../utils/error";
+import Button from "../../../components/button";
 
 const { width, height } = Dimensions.get("screen");
+
+const imageHeight = height / 3;
+const tabBarHeight = imageHeight / 6;
 
 const CourseInfo = ({ route, navigation }) => {
   const { course, defaultImage } = route?.params;
@@ -27,8 +34,12 @@ const CourseInfo = ({ route, navigation }) => {
     { key: "second", title: "Course content" },
   ]);
 
-  const FirstRoute = () => <CourseOverview course={course} />;
-  const SecondRoute = () => <CourseContent course={course} />;
+  const FirstRoute = () => (
+    <CourseOverview course={course} extraHeight={tabBarHeight} />
+  );
+  const SecondRoute = () => (
+    <CourseContent course={course} extraHeight={tabBarHeight} />
+  );
 
   const renderScene = SceneMap({
     first: FirstRoute,
@@ -41,7 +52,9 @@ const CourseInfo = ({ route, navigation }) => {
         {...props}
         style={{
           backgroundColor: gray900,
-          borderTopLeftRadius: 20,
+          borderTopLeftRadius: tabBarHeight / 1.8,
+          borderTopRightRadius: tabBarHeight / 1.8,
+          height: tabBarHeight,
         }}
         indicatorStyle={{ backgroundColor: gray200 }}
         bounces
@@ -51,7 +64,6 @@ const CourseInfo = ({ route, navigation }) => {
               h6
               style={{
                 color: focused ? gray50 : gray600,
-                marginBottom: 8,
                 fontFamily: fonts.semiBoldOpen.fontFamily,
               }}>
               {route.title}
@@ -59,28 +71,24 @@ const CourseInfo = ({ route, navigation }) => {
           );
         }}
       />
-      // <View style={styles.tabBar}>
-      //   {props.navigationState.routes.map((route, i) => {
-      //     const opacity = props.position.interpolate({
-      //       inputRange,
-      //       outputRange: inputRange.map(inputIndex =>
-      //         inputIndex === i ? 1 : 0.4,
-      //       ),
-      //     });
-
-      //     return (
-      //       <TouchableOpacity
-      //         key={i}
-      //         style={styles.tabItem}
-      //         onPress={() => setIndex(i)}>
-      //         <Animated.Text style={{ opacity, color: gray50 }}>
-      //           {route.title}
-      //         </Animated.Text>
-      //       </TouchableOpacity>
-      //     );
-      //   })}
-      // </View>
     );
+  };
+
+  const onShareHandler = async () => {
+    try {
+      const options = {
+        message: `Check out this amazing ${course?.title} course on HypeLearn app!
+Google Play: https://google.com
+App Store: https://apple.com`,
+      };
+      await Share.open(options);
+    } catch (e) {
+      handleError({
+        message: e.message,
+        source: "CourseInfo/onShareHandler",
+        hide: true,
+      });
+    }
   };
 
   return (
@@ -91,14 +99,8 @@ const CourseInfo = ({ route, navigation }) => {
         }}
         resizeMode={FastImage.resizeMode.cover}
         style={styles.image}>
-        <View style={styles.overlay}></View>
+        {/* <View style={styles.overlay}></View> */}
       </FastImage>
-      <TouchableOpacity
-        hitSlop={hitBox20}
-        onPress={() => navigation.goBack()}
-        style={styles.back}>
-        <Icon name="md-arrow-back" size={30} color={gray50} />
-      </TouchableOpacity>
       <TabView
         navigationState={{ index, routes }}
         renderScene={renderScene}
@@ -106,7 +108,27 @@ const CourseInfo = ({ route, navigation }) => {
         onIndexChange={setIndex}
         showPageIndicator
         initialLayout={{ width }}
+        style={{
+          top: -tabBarHeight,
+        }}
       />
+      <View style={styles.center}>
+        <Button primary medium label="Enroll" style={styles.button} />
+      </View>
+      <Row style={styles.row}>
+        <TouchableOpacity
+          hitSlop={hitBox20}
+          onPress={() => navigation.goBack()}
+          style={styles.back}>
+          <Icon name="md-arrow-back" size={30} color={gray50} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          hitSlop={hitBox20}
+          onPress={onShareHandler}
+          style={[styles.back, styles.shareIcon]}>
+          <Icon name="share-social" size={24} color={gray50} />
+        </TouchableOpacity>
+      </Row>
     </View>
   );
 };
@@ -117,16 +139,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: gray900,
-    // position: "relative",
   },
   image: {
     width,
-    height: height / 4,
+    height: imageHeight,
   },
   back: {
-    position: "absolute",
-    left: margin.large,
-    top: margin.large,
     height: 40,
     width: 40,
     backgroundColor: "rgba(0,0,0,0.5)",
@@ -134,19 +152,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 20,
   },
+  shareIcon: {
+    paddingRight: 3,
+  },
+  row: {
+    position: "absolute",
+    top: margin.large,
+    width,
+    paddingHorizontal: padding.large,
+  },
   body: {
     flex: 1,
-  },
-  overlay: {
-    height: 20,
-    width,
-    borderTopLeftRadius: 150,
-    borderTopRightRadius: 150,
-    backgroundColor: gray900,
-    position: "absolute",
-    bottom: 0,
-    justifyContent: "center",
-    alignItems: "center",
   },
   title: {
     fontSize: verticalScale(17),
@@ -154,11 +170,19 @@ const styles = StyleSheet.create({
   tabBar: {
     flexDirection: "row",
     backgroundColor: gray900,
-    // paddingTop: Constants.statusBarHeight,
   },
   tabItem: {
     flex: 1,
     alignItems: "center",
     padding: 16,
+  },
+  center: {
+    position: "absolute",
+    left: padding.big,
+    bottom: padding.small,
+  },
+  button: {
+    width: width - padding.big * 2,
+    height: height <= 700 ? width / 9 : width / 8,
   },
 });
