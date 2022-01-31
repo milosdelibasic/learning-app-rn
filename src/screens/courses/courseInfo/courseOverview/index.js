@@ -39,7 +39,7 @@ const CourseOverview = ({ course, extraHeight }) => {
   };
 
   return (
-    <View style={[styles.container]}>
+    <View style={styles.container}>
       <ScrollView
         style={styles.scrollContainer}
         showsVerticalScrollIndicator={false}>
