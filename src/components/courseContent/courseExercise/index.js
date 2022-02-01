@@ -53,7 +53,7 @@ const CourseExercise = ({ title, type, icon, last }) => {
           color={gray200}
           style={styles.icon}
         />
-        <Text primary h4 semiBold>
+        <Text primary h5 semiBold>
           {title}
         </Text>
       </Row>
