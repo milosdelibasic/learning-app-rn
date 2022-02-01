@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { LogBox, View } from "react-native";
 import React, { useEffect } from "react";
 import Config from "react-native-config";
 import { NavigationContainer } from "@react-navigation/native";
@@ -21,6 +21,11 @@ const App = () => {
   useEffect(() => {
     __DEV__ && console.log("Environment running: ", Config.ENVIRONMENT);
   }, []);
+
+  LogBox.ignoreLogs([
+    "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
+    "Require cycle",
+  ]);
 
   return (
     <View style={{ flex: 1, backgroundColor: gray900 }}>
