@@ -1,64 +1,54 @@
-import { StyleSheet } from "react-native";
 import React from "react";
-import Row from "../../row";
-import Icon from "react-native-vector-icons/Feather";
-import { sizes } from "../../../config/fonts";
-import { gray200, gray400, gray50 } from "../../../config/colors";
-import Text from "../../text";
-import { margin, padding } from "../../../config/spacing";
+import { StyleSheet, View } from "react-native";
+
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import FAIcon from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/Feather";
+
+import { sizes } from "../../../config/fonts";
+import { gray200, gray400, gray50 } from "../../../config/colors";
+import { margin, padding } from "../../../config/spacing";
+
+import Row from "../../row";
+import Text from "../../text";
+import Divider from "../../divider";
 
 const CourseExercise = ({ title, type, icon, last }) => {
   const renderIcon = () => {
     switch (type) {
       case "drag":
         return (
-          <MaterialIcons
-            name="drag-indicator"
-            color={gray50}
-            size={sizes.h3}
-            style={styles.iconContainer}
-          />
+          <MaterialIcons name="drag-indicator" color={gray50} size={sizes.h3} />
         );
       case "question":
         return (
-          <FAIcon
-            name="question-circle-o"
-            color={gray50}
-            size={sizes.h3}
-            style={styles.iconContainer}
-          />
+          <FAIcon name="question-circle-o" color={gray50} size={sizes.h3} />
         );
       case "code":
-        return (
-          <FAIcon
-            name="code"
-            color={gray50}
-            size={sizes.h3}
-            style={styles.iconContainer}
-          />
-        );
+        return <FAIcon name="code" color={gray50} size={sizes.h3} />;
 
       default:
         return <></>;
     }
   };
   return (
-    <Row style={[!last ? styles.spacing : "", styles.container]}>
-      <Row spacing="flex-start">
-        <Icon
-          name="check-circle"
-          size={sizes.h3}
-          color={gray200}
-          style={styles.icon}
-        />
-        <Text primary h5 semiBold>
-          {title}
-        </Text>
+    <>
+      <Row style={styles.container}>
+        <Row spacing="flex-start" style={styles.left}>
+          <Icon
+            name="check-circle"
+            size={sizes.h3}
+            color={gray200}
+            style={styles.icon}
+          />
+          <Text primary h5 semiBold numberOfLines={1}>
+            {title}
+          </Text>
+        </Row>
+        {icon && type && <View style={styles.right}>{renderIcon()}</View>}
       </Row>
-      {icon && type && renderIcon()}
-    </Row>
+      {!last && <Divider />}
+    </>
   );
 };
 
@@ -74,6 +64,12 @@ const styles = StyleSheet.create({
   spacing: {
     borderBottomColor: gray400,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    // marginBottom: margin.base,
+  },
+  left: {
+    width: "80%",
+  },
+  right: {
+    width: "20%",
+    alignItems: "flex-end",
   },
 });
