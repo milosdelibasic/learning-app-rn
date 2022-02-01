@@ -11,8 +11,11 @@ const Row = ({
     <View
       style={[
         styles.row,
+        {
+          justifyContent: spacing,
+          alignItems: align,
+        },
         style,
-        { justifyContent: spacing, alignItems: align },
       ]}>
       {children}
     </View>
