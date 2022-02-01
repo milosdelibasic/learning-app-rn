@@ -17,7 +17,7 @@ export async function handleError(e) {
   }. ${parsed?._id ? `userId: ${parsed?._id}` : ""} ${
     e?.additional ? "Additional info: " + e?.additional : ""
   }`;
-  !e?.dontUpload && Bugsnag.notify(new Error(error));
+  !__DEV__ && !e?.dontUpload && Bugsnag.notify(new Error(error));
   __DEV__ && console.error(error);
 }
 

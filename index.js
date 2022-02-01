@@ -2,7 +2,7 @@ import Bugsnag from "@bugsnag/react-native";
 import React from "react";
 import "react-native-gesture-handler";
 
-Bugsnag.start();
+!__DEV__ && Bugsnag.start();
 
 import { AppRegistry } from "react-native";
 import App from "./App";
