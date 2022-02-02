@@ -14,7 +14,7 @@ const CourseContent = ({ course }) => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Text white h3 semiBold style={styles.title}>
-        Course content
+        {course?.title} course content
       </Text>
       <Accordion title="10 sections" type="section" icon spacing={margin.base}>
         <CourseSection title="Intro" number={1} time="4.5h" />
@@ -115,6 +115,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: padding.big,
   },
   title: {
-    marginBottom: margin.base,
+    marginBottom: margin.big,
   },
 });

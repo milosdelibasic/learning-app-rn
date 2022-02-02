@@ -1,10 +1,4 @@
-import {
-  Dimensions,
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Animated,
-} from "react-native";
+import { Dimensions, StyleSheet, View, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import Text from "../../../components/text";
 import FastImage from "react-native-fast-image";
