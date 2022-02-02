@@ -111,6 +111,16 @@ JavaScript's dynamic capabilities include runtime object construction, variable 
         type: "img",
       },
     ],
+    achievements: [
+      {
+        title: "JS Guru",
+        type: "js-guru",
+      },
+      {
+        title: "Medalist",
+        type: "medal",
+      },
+    ],
   },
   {
     _id: "sdafuh213",

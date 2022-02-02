@@ -9,13 +9,7 @@ import {
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import Text from "../text";
-import {
-  gray200,
-  gray50,
-  gray500,
-  gray600,
-  grayDark,
-} from "../../config/colors";
+import { gray200, gray50, gray600, grayDark } from "../../config/colors";
 import { borderRadius, margin, padding } from "../../config/spacing";
 import Row from "../row";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
@@ -85,6 +79,15 @@ const Accordion = ({ type, icon, title, spacing, children }) => {
         return (
           <MaterialCIcons
             name="certificate"
+            color={gray50}
+            size={sizes.h3}
+            style={styles.iconContainer}
+          />
+        );
+      case "achievements":
+        return (
+          <Icon
+            name="trophy"
             color={gray50}
             size={sizes.h3}
             style={styles.iconContainer}

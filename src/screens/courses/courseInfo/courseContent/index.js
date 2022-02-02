@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import React from "react";
 import { gray900 } from "../../../../config/colors";
 import { margin, padding } from "../../../../config/spacing";
@@ -10,6 +10,7 @@ import CourseVideo from "../../../../components/courseContent/courseVideo";
 import CourseArticle from "../../../../components/courseContent/courseArticle";
 import CourseResource from "../../../../components/courseContent/courseResource";
 import CourseCertificate from "../../../../components/courseContent/courseCertificate";
+import CourseAchievement from "../../../../components/courseContent/courseAchievement";
 
 const CourseContent = ({ course }) => {
   const {
@@ -20,6 +21,7 @@ const CourseContent = ({ course }) => {
     resources,
     title,
     certificate,
+    achievements,
   } = course;
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -86,6 +88,17 @@ const CourseContent = ({ course }) => {
               last={videos?.length === index + 1}
             />
           ))}
+        </Accordion>
+      )}
+      {course && achievements && (
+        <Accordion
+          title={`${achievements?.length} achievement${
+            achievements?.length !== 0 ? "s" : ""
+          }`}
+          type="achievements"
+          icon
+          spacing={margin.base}>
+          <CourseAchievement achievements={achievements} />
         </Accordion>
       )}
       {course && articles && (
