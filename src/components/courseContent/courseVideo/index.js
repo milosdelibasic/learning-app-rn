@@ -7,6 +7,7 @@ import { margin, padding } from "../../../config/spacing";
 import { gray200 } from "../../../config/colors";
 import { sizes } from "../../../config/fonts";
 import Divider from "../../divider";
+import NumberContainer from "../numberContainer";
 
 const CourseVideo = ({
   number = 1,
@@ -17,17 +18,18 @@ const CourseVideo = ({
     <>
       <Row style={styles.container}>
         <Row spacing="flex-start" style={styles.left}>
-          <View style={[styles.numberContainer, styles.spacing]}>
-            <Text h6 semiBold>
-              {number}
-            </Text>
-          </View>
+          <NumberContainer number={number} />
           <Text h5 primary semiBold numberOfLines={1} style={styles.title}>
             {video?.title}
           </Text>
         </Row>
         <Row spacing="flex-start" style={styles.right}>
-          <Icon name="clock" style={styles.spacing} size={sizes.h5} />
+          <Icon
+            name="clock"
+            style={styles.spacing}
+            size={sizes.h5}
+            color={gray200}
+          />
           <Text h6 primary>
             {video?.duration}
           </Text>

@@ -18,14 +18,18 @@ const CourseExercise = ({ title, type, icon, last }) => {
     switch (type) {
       case "drag":
         return (
-          <MaterialIcons name="drag-indicator" color={gray50} size={sizes.h3} />
+          <MaterialIcons
+            name="drag-indicator"
+            color={gray200}
+            size={sizes.h3}
+          />
         );
       case "question":
         return (
-          <FAIcon name="question-circle-o" color={gray50} size={sizes.h3} />
+          <FAIcon name="question-circle-o" color={gray200} size={sizes.h3} />
         );
       case "code":
-        return <FAIcon name="code" color={gray50} size={sizes.h3} />;
+        return <FAIcon name="code" color={gray200} size={sizes.h3} />;
 
       default:
         return <></>;
@@ -66,10 +70,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   left: {
-    width: "80%",
+    flex: 1,
   },
   right: {
-    width: "20%",
-    alignItems: "flex-end",
+    width: sizes.h2,
+    alignItems: "center",
   },
 });

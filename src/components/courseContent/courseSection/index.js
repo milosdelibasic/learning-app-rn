@@ -7,7 +7,7 @@ import { margin } from "../../../config/spacing";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { sizes } from "../../../config/fonts";
 
-const CourseSectionCard = ({ title = "Section 1", number = 1, last, time }) => {
+const CourseSection = ({ title = "Section 1", number = 1, last, time }) => {
   return (
     <>
       <Row>
@@ -24,7 +24,12 @@ const CourseSectionCard = ({ title = "Section 1", number = 1, last, time }) => {
           </Text>
         </Row>
         <Row spacing="flex-start" style={styles.right}>
-          <Icon name="timer-sand-full" size={sizes.h5} style={styles.icon} />
+          <Icon
+            name="timer-sand-full"
+            size={sizes.h5}
+            style={styles.icon}
+            color={gray200}
+          />
           <Text h6 primary style={styles.hours}>
             {time}
           </Text>
@@ -35,7 +40,7 @@ const CourseSectionCard = ({ title = "Section 1", number = 1, last, time }) => {
   );
 };
 
-export default CourseSectionCard;
+export default CourseSection;
 
 const styles = StyleSheet.create({
   outerContainer: {
