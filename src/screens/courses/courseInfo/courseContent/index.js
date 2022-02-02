@@ -6,6 +6,7 @@ import Text from "../../../../components/text";
 import Accordion from "../../../../components/accordion";
 import CourseSectionCard from "../../../../components/courseContent/courseSectionCard";
 import CourseExercise from "../../../../components/courseContent/courseExercise";
+import CourseVideo from "../../../../components/courseContent/courseVideo";
 
 const CourseContent = ({ course }) => {
   return (
@@ -26,10 +27,25 @@ const CourseContent = ({ course }) => {
         spacing={margin.base}>
         <CourseExercise title="CSS in JS" type="drag" icon />
         <CourseExercise title="Basics" type="question" icon />
-        <CourseExercise title="Basics" type="code" icon last />
+        <CourseExercise title="Coding" type="code" icon last />
       </Accordion>
       <Accordion title="20 videos" type="video" icon spacing={margin.base}>
-        <Text>Test</Text>
+        <CourseVideo />
+        <CourseVideo
+          number={2}
+          video={{
+            title: "Really long title name for a course...",
+            duration: "05:15",
+          }}
+        />
+        <CourseVideo
+          number={3}
+          video={{
+            title: "Test 123",
+            duration: "02:15",
+          }}
+          last
+        />
       </Accordion>
       <Accordion title="5 articles" type="article" icon spacing={margin.base}>
         <Text>Test</Text>
