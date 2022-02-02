@@ -19,6 +19,7 @@ import {
 import { borderRadius, margin, padding } from "../../config/spacing";
 import Row from "../row";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import MaterialCIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Icon from "react-native-vector-icons/Ionicons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import { sizes } from "../../config/fonts";
@@ -75,6 +76,15 @@ const Accordion = ({ type, icon, title, spacing, children }) => {
         return (
           <MaterialIcons
             name="cloud-download"
+            color={gray50}
+            size={sizes.h3}
+            style={styles.iconContainer}
+          />
+        );
+      case "certificate":
+        return (
+          <MaterialCIcons
+            name="certificate"
             color={gray50}
             size={sizes.h3}
             style={styles.iconContainer}

@@ -18,6 +18,99 @@ Contrary to popular misconception, JavaScript is not "Interpreted Java". In a nu
 JavaScript can function as both a procedural and an object oriented language. Objects are created programmatically in JavaScript, by attaching methods and properties to otherwise empty objects at run time, as opposed to the syntactic class definitions common in compiled languages like C++ and Java. Once an object has been constructed it can be used as a blueprint (or prototype) for creating similar objects.
 
 JavaScript's dynamic capabilities include runtime object construction, variable parameter lists, function variables, dynamic script creation (via eval), object introspection (via for ... in), and source code recovery (JavaScript programs can decompile function bodies back into their source text).`,
+    certificate: true,
+    sections: [
+      {
+        title: "Intro",
+        time: "0.5 h",
+      },
+      {
+        title: "About JavaScript",
+        time: "0.5 h",
+      },
+      {
+        title: "Variables",
+        time: "1 h",
+      },
+      {
+        title: "Arrays",
+        time: "2 h",
+      },
+      {
+        title: "DOM",
+        time: "3 h",
+      },
+      {
+        title: "Advanced JS",
+        time: "7 h",
+      },
+    ],
+    exercises: [
+      {
+        title: "Const & Let",
+        type: "drag",
+      },
+      {
+        title: "Arrays",
+        type: "question",
+      },
+      {
+        title: "Functions",
+        type: "code",
+      },
+      {
+        title: "DOM",
+        type: "drag",
+      },
+      {
+        title: "Test",
+        type: "drag",
+      },
+    ],
+    videos: [
+      { title: "JavaScript Basics", duration: "02:40" },
+      { title: "Behind the scenes", duration: "06:32" },
+      { title: "All array methods", duration: "08:22" },
+      { title: "Arrow functions", duration: "18:22" },
+      { title: "ES6", duration: "22:00" },
+    ],
+    articles: [
+      {
+        title: "JavaScript in a nutshell",
+        minutes: "3",
+        author: "Milos Delibasic",
+      },
+      {
+        title: "Behind the scenes",
+        minutes: "6",
+        author: "Milos Delibasic",
+      },
+      {
+        title: "All array methods",
+        minutes: "8",
+        author: "Milos Delibasic",
+      },
+      {
+        title: "Arrow functions",
+        minutes: "18",
+        author: "Valentina Delibasic",
+      },
+      { title: "ES6", minutes: "22", author: "Perica" },
+    ],
+    resources: [
+      {
+        title: "JS CheatSheet",
+        type: "pdf",
+      },
+      {
+        title: "JS txt",
+        type: "txt",
+      },
+      {
+        title: "JS photoshop",
+        type: "img",
+      },
+    ],
   },
   {
     _id: "sdafuh213",
@@ -30,6 +123,99 @@ JavaScript's dynamic capabilities include runtime object construction, variable 
       "https://res.cloudinary.com/practicaldev/image/fetch/s--Z0wY_Kg2--/c_imagga_scale,f_auto,fl_progressive,h_720,q_auto,w_1280/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pdib9r9rk5j1m7oala1p.png",
     youtubeOverview: "Tn6-PIqc4UM",
     about: `React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library[3] for building user interfaces based on UI components. It is maintained by Meta (formerly Facebook) and a community of individual developers and companies.[4][5][6] React can be used as a base in the development of single-page or mobile applications. However, React is only concerned with state management and rendering that state to the DOM, so creating React applications usually requires the use of additional libraries for routing, as well as certain client-side functionality.`,
+    certificate: true,
+    sections: [
+      {
+        title: "Intro",
+        time: "0.5 h",
+      },
+      {
+        title: "About JavaScript",
+        time: "0.5 h",
+      },
+      {
+        title: "Variables",
+        time: "1 h",
+      },
+      {
+        title: "Arrays",
+        time: "2 h",
+      },
+      {
+        title: "DOM",
+        time: "3 h",
+      },
+      {
+        title: "Advanced JS",
+        time: "7 h",
+      },
+    ],
+    exercises: [
+      {
+        title: "Const & Let",
+        type: "drag",
+      },
+      {
+        title: "Arrays",
+        type: "question",
+      },
+      {
+        title: "Functions",
+        type: "code",
+      },
+      {
+        title: "DOM",
+        type: "drag",
+      },
+      {
+        title: "Test",
+        type: "drag",
+      },
+    ],
+    videos: [
+      { title: "JavaScript Basics", duration: "02:40" },
+      { title: "Behind the scenes", duration: "06:32" },
+      { title: "All array methods", duration: "08:22" },
+      { title: "Arrow functions", duration: "18:22" },
+      { title: "ES6", duration: "22:00" },
+    ],
+    articles: [
+      {
+        title: "JavaScript in a nutshell",
+        minutes: "3",
+        author: "Milos Delibasic",
+      },
+      {
+        title: "Behind the scenes",
+        minutes: "6",
+        author: "Milos Delibasic",
+      },
+      {
+        title: "All array methods",
+        minutes: "8",
+        author: "Milos Delibasic",
+      },
+      {
+        title: "Arrow functions",
+        minutes: "18",
+        author: "Valentina Borjdoski",
+      },
+      { title: "ES6", minutes: "22", author: "Perica" },
+    ],
+    resources: [
+      {
+        title: "JS CheatSheet",
+        type: "pdf",
+      },
+      {
+        title: "JS txt",
+        type: "txt",
+      },
+      {
+        title: "JS photoshop",
+        type: "img",
+      },
+    ],
   },
   {
     _id: "gfhrtd32",
@@ -47,5 +233,98 @@ Python is dynamically-typed and garbage-collected. It supports multiple programm
 Guido van Rossum began working on Python in the late 1980s, as a successor to the ABC programming language, and first released it in 1991 as Python 0.9.0.[33] Python 2.0 was released in 2000 and introduced new features, such as list comprehensions and a cycle-detecting garbage collection system (in addition to reference counting). Python 3.0 was released in 2008 and was a major revision of the language that is not completely backward-compatible. Python 2 was discontinued with version 2.7.18 in 2020.[34]
 
 Python consistently ranks as one of the most popular programming languages.`,
+    certificate: false,
+    sections: [
+      {
+        title: "Intro",
+        time: "0.5 h",
+      },
+      {
+        title: "About JavaScript",
+        time: "0.5 h",
+      },
+      {
+        title: "Variables",
+        time: "1 h",
+      },
+      {
+        title: "Arrays",
+        time: "2 h",
+      },
+      {
+        title: "DOM",
+        time: "3 h",
+      },
+      {
+        title: "Advanced JS",
+        time: "7 h",
+      },
+    ],
+    exercises: [
+      {
+        title: "Const & Let",
+        type: "drag",
+      },
+      {
+        title: "Arrays",
+        type: "question",
+      },
+      {
+        title: "Functions",
+        type: "code",
+      },
+      {
+        title: "DOM",
+        type: "drag",
+      },
+      {
+        title: "Test",
+        type: "drag",
+      },
+    ],
+    videos: [
+      { title: "JavaScript Basics", duration: "02:40" },
+      { title: "Behind the scenes", duration: "06:32" },
+      { title: "All array methods", duration: "08:22" },
+      { title: "Arrow functions", duration: "18:22" },
+      { title: "ES6", duration: "22:00" },
+    ],
+    articles: [
+      {
+        title: "JavaScript in a nutshell",
+        minutes: "3",
+        author: "Milos Delibasic",
+      },
+      {
+        title: "Behind the scenes",
+        minutes: "6",
+        author: "Milos Delibasic",
+      },
+      {
+        title: "All array methods",
+        minutes: "8",
+        author: "Milos Delibasic",
+      },
+      {
+        title: "Arrow functions",
+        minutes: "18",
+        author: "Valentina Borjdoski",
+      },
+      { title: "ES6", minutes: "22", author: "Perica" },
+    ],
+    resources: [
+      {
+        title: "JS CheatSheet",
+        type: "pdf",
+      },
+      {
+        title: "JS txt",
+        type: "txt",
+      },
+      {
+        title: "JS photoshop",
+        type: "img",
+      },
+    ],
   },
 ];

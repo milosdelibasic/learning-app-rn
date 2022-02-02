@@ -13,9 +13,13 @@ import Row from "../../row";
 import Text from "../../text";
 import Divider from "../../divider";
 
-const CourseExercise = ({ title, type, icon, last }) => {
+const CourseExercise = ({
+  exercise = { title: "", type: "drag" },
+  icon,
+  last,
+}) => {
   const renderIcon = () => {
-    switch (type) {
+    switch (exercise?.type) {
       case "drag":
         return (
           <MaterialIcons
@@ -46,10 +50,12 @@ const CourseExercise = ({ title, type, icon, last }) => {
             style={styles.icon}
           />
           <Text primary h5 semiBold numberOfLines={1}>
-            {title}
+            {exercise?.title}
           </Text>
         </Row>
-        {icon && type && <View style={styles.right}>{renderIcon()}</View>}
+        {icon && exercise?.type && (
+          <View style={styles.right}>{renderIcon()}</View>
+        )}
       </Row>
       {!last && <Divider />}
     </>

@@ -9,98 +9,121 @@ import CourseExercise from "../../../../components/courseContent/courseExercise"
 import CourseVideo from "../../../../components/courseContent/courseVideo";
 import CourseArticle from "../../../../components/courseContent/courseArticle";
 import CourseResource from "../../../../components/courseContent/courseResource";
+import CourseCertificate from "../../../../components/courseContent/courseCertificate";
 
 const CourseContent = ({ course }) => {
+  const {
+    sections,
+    exercises,
+    videos,
+    articles,
+    resources,
+    title,
+    certificate,
+  } = course;
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Text white h3 semiBold style={styles.title}>
-        {course?.title} course content
+        {title} course content
       </Text>
-      <Accordion title="10 sections" type="section" icon spacing={margin.base}>
-        <CourseSection title="Intro" number={1} time="4.5h" />
-        <CourseSection title="Const & Let" number={2} time="1h" />
-        <CourseSection title="DOM" number={3} time="2h" />
-        <CourseSection title="Advanced JS" number={4} time="6h" last />
-      </Accordion>
-      <Accordion
-        title="17 exercises"
-        type="exercise"
-        icon
-        spacing={margin.base}>
-        <CourseExercise title="CSS in JS" type="drag" icon />
-        <CourseExercise title="Basics" type="question" icon />
-        <CourseExercise title="Coding" type="code" icon last />
-      </Accordion>
-      <Accordion title="20 videos" type="video" icon spacing={margin.base}>
-        <CourseVideo />
-        <CourseVideo
-          number={2}
-          video={{
-            title: "Really long title name for a course...",
-            duration: "05:15",
-          }}
-        />
-        <CourseVideo
-          number={3}
-          video={{
-            title: "Test 123",
-            duration: "02:15",
-          }}
-          last
-        />
-      </Accordion>
-      <Accordion title="5 articles" type="article" icon spacing={margin.base}>
-        <CourseArticle
-          article={{
-            author: "Milos Delibasic",
-            title: "JavaScript in a nutshell",
-            minutes: "6",
-          }}
-        />
-        <CourseArticle
-          number={2}
-          article={{
-            author: "Milos Delibasic",
-            title: "Just testing hehe :)",
-            minutes: "3",
-          }}
-        />
-        <CourseArticle
-          number={3}
-          article={{
-            author: "Valentina Bordjoski",
-            title: "Drawing 101",
-            minutes: "16",
-          }}
-        />
-        <CourseArticle
-          number={4}
-          last
-          article={{
-            author: "Perica",
-            title: "How I met Marica",
-            minutes: "9",
-          }}
-        />
-      </Accordion>
-      <Accordion title="3 resources" type="download" icon>
-        <CourseResource
-          resource={{ title: "JS CheatSheet", type: "pdf" }}
-          number={1}
+      {course && sections && (
+        <Accordion
+          title={`${sections?.length} section${
+            sections?.length !== 0 ? "s" : ""
+          }`}
+          type="section"
           icon
-        />
-        <CourseResource
-          resource={{ title: "JS txt", type: "txt" }}
+          spacing={margin.base}>
+          {sections?.map((section, index) => (
+            <CourseSection
+              key={index}
+              section={section}
+              number={index + 1}
+              last={sections?.length === index + 1}
+            />
+          ))}
+        </Accordion>
+      )}
+      {course && certificate && (
+        <Accordion
+          title="Certificate of completion"
+          type="certificate"
           icon
-          number={2}
-        />
-        <CourseResource
-          resource={{ title: "JS PS", type: "img" }}
-          last
+          spacing={margin.base}>
+          <CourseCertificate />
+        </Accordion>
+      )}
+      {course && exercises && (
+        <Accordion
+          title={`${exercises?.length} exercise${
+            exercises?.length !== 0 ? "s" : ""
+          }`}
+          type="exercise"
           icon
-          number={3}
-        />
-      </Accordion>
+          spacing={margin.base}>
+          {exercises?.map((exercise, index) => (
+            <CourseExercise
+              key={index}
+              exercise={exercise}
+              icon={exercise?.type}
+              number={index + 1}
+              last={exercises?.length === index + 1}
+            />
+          ))}
+        </Accordion>
+      )}
+      {course && videos && (
+        <Accordion
+          title={`${videos?.length} video${videos?.length !== 0 ? "s" : ""}`}
+          type="video"
+          icon
+          spacing={margin.base}>
+          {videos?.map((video, index) => (
+            <CourseVideo
+              key={index}
+              video={video}
+              number={index + 1}
+              last={videos?.length === index + 1}
+            />
+          ))}
+        </Accordion>
+      )}
+      {course && articles && (
+        <Accordion
+          title={`${articles?.length} article${
+            articles?.length !== 0 ? "s" : ""
+          }`}
+          type="article"
+          icon
+          spacing={margin.base}>
+          {articles?.map((article, index) => (
+            <CourseArticle
+              key={index}
+              article={article}
+              number={index + 1}
+              last={articles?.length === index + 1}
+            />
+          ))}
+        </Accordion>
+      )}
+      {course && resources && (
+        <Accordion
+          title={`${resources?.length} resource${
+            resources?.length !== 0 ? "s" : ""
+          }`}
+          type="download"
+          icon>
+          {resources?.map((resource, index) => (
+            <CourseResource
+              key={index}
+              resource={resource}
+              number={index + 1}
+              last={resources?.length === index + 1}
+              icon={resource?.type}
+            />
+          ))}
+        </Accordion>
+      )}
     </ScrollView>
   );
 };

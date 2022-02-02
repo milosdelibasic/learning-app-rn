@@ -7,7 +7,11 @@ import { margin } from "../../../config/spacing";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { sizes } from "../../../config/fonts";
 
-const CourseSection = ({ title = "Section 1", number = 1, last, time }) => {
+const CourseSection = ({
+  section = { title: "test", time: 2 },
+  number = 1,
+  last,
+}) => {
   return (
     <>
       <Row>
@@ -20,7 +24,7 @@ const CourseSection = ({ title = "Section 1", number = 1, last, time }) => {
             </View>
           </View>
           <Text primary h5 semiBold style={styles.title} numberOfLines={1}>
-            {title}
+            {section?.title}
           </Text>
         </Row>
         <Row spacing="flex-start" style={styles.right}>
@@ -31,7 +35,7 @@ const CourseSection = ({ title = "Section 1", number = 1, last, time }) => {
             color={gray200}
           />
           <Text h6 primary style={styles.hours}>
-            {time}
+            {section?.time}
           </Text>
         </Row>
       </Row>
