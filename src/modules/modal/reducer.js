@@ -2,26 +2,35 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isOpen: false,
-  type: null,
+  title: null,
+  content: null,
+  buttonDivider: false,
+  buttonDirection: "horizontal",
+  btn1: null,
+  btn2: null,
 };
 
 export const modalSlice = createSlice({
   name: "modal",
   initialState,
   reducers: {
-    open: state => {
+    open: (state, action) => {
       state.isOpen = true;
+      state.title = action.payload?.title;
+      state.content = action.payload?.content;
+      state.buttonDivider = action.payload?.buttonDivider;
+      state.buttonDirection = action.payload?.buttonDirection || "horizontal";
+      state.btn1 = action.payload?.btn1;
+      state.btn2 = action.payload?.btn2;
     },
     close: state => {
-      state.isOpen = null;
-    },
-    addCarModal: state => {
-      state.type = "addCar";
-      state.isOpen = true;
-    },
-    plateSelectorModal: state => {
-      state.type = "plateSelector";
-      state.isOpen = true;
+      state.isOpen = false;
+      state.title = null;
+      state.content = null;
+      state.buttonDivider = false;
+      state.buttonDirection = "horizontal";
+      state.btn1 = null;
+      state.btn2 = null;
     },
   },
 });

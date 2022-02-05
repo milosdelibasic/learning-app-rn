@@ -90,7 +90,15 @@ const Button = ({
         ])}>
         {icon}
         {label && (
-          <Text h5 bold style={[styles.btnTextStyle, textStyle]} {...rest}>
+          <Text
+            h5
+            bold
+            style={[
+              styles.btnTextStyle,
+              textStyle,
+              rest?.secondary ? styles.secondaryButton : "",
+            ]}
+            {...rest}>
             {label}
           </Text>
         )}
@@ -136,7 +144,7 @@ const styles = StyleSheet.create({
   medium: {
     borderRadius: 20,
     height: height <= 700 ? width / 8 : width / 7,
-    width: width / 3,
+    width: width / 2.8,
   },
   round: {
     borderRadius: width / 6,
@@ -154,12 +162,13 @@ const styles = StyleSheet.create({
   },
   primary: {
     backgroundColor: gray50,
-    color: grayDark,
   },
   secondary: {
     backgroundColor: grayDark,
-    borderColor: gray50,
     borderWidth: 1,
+  },
+  secondaryButton: {
+    color: gray50,
   },
   cancel: {
     // backgroundColor: grey1,

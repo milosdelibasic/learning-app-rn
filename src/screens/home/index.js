@@ -3,25 +3,45 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Dimensions,
+  BackHandler,
 } from "react-native";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Text from "../../components/text";
 import { grayDark } from "../../config/colors";
-import { margin, padding } from "../../config/spacing";
+import { padding } from "../../config/spacing";
 import { authSelector } from "../../modules/auth/reducer";
-import ContinueLearningCard from "../../components/continueLearningCard";
 import Row from "../../components/row";
-import FeaturedCourseCard from "../../components/featuredCourseCard";
-import { featuredCourses } from "../../dummyData/featuredCourses";
 import ContinueLearningContainer from "../../components/containers/continueLearningContainer";
 import FeaturedCoursesContainer from "../../components/containers/featuredCoursesContainer";
 import { mainStack } from "../../config/navigator";
-const { width } = Dimensions.get("screen");
+import { actions as modalActions } from "../../modules/modal/reducer";
+import { useAndroidBackButton } from "../../../hooks/useAndroidBackButton";
 
 const Home = ({ navigation }) => {
   const { user } = useSelector(authSelector);
+  const dispatch = useDispatch();
+
+  const handleBackPress = () => {
+    dispatch(
+      modalActions.open({
+        title: "Are you sure you want to exit?",
+        content: (
+          <Text secondary h5 semiBold>
+            We hope to see you again soon!
+          </Text>
+        ),
+        btn1: { label: "Exit", onPress: () => BackHandler.exitApp() },
+        btn2: {
+          label: "Cancel",
+          onPress: () => dispatch(modalActions.close()),
+        },
+      }),
+    );
+    return true;
+  };
+
+  useAndroidBackButton(handleBackPress);
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>

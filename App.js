@@ -11,6 +11,7 @@ import { toastConfig } from "./src/config/toast";
 import { injectStore } from "./src/modules/axiosConfig";
 import { gray900 } from "./src/config/colors";
 import { enableScreens } from "react-native-screens";
+import Modal from "./src/components/modal";
 const { store } = configureStore();
 
 enableScreens(true);
@@ -33,6 +34,7 @@ const App = () => {
         <Provider store={store}>
           <RootSwitch />
           <Toast config={toastConfig} />
+          <Modal />
         </Provider>
       </NavigationContainer>
     </View>
