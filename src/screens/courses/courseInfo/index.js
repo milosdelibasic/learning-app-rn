@@ -14,6 +14,7 @@ import Row from "../../../components/row";
 import Share from "react-native-share";
 import { handleError } from "../../../utils/error";
 import Button from "../../../components/button";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -27,6 +28,8 @@ const CourseInfo = ({ route, navigation }) => {
     { key: "first", title: "Overview" },
     { key: "second", title: "Course content" },
   ]);
+
+  const insets = useSafeAreaInsets();
 
   const FirstRoute = () => (
     <CourseOverview course={course} extraHeight={tabBarHeight} />
@@ -48,7 +51,7 @@ const CourseInfo = ({ route, navigation }) => {
           backgroundColor: gray900,
           borderTopLeftRadius: tabBarHeight / 1.8,
           borderTopRightRadius: tabBarHeight / 1.8,
-          height: tabBarHeight,
+          height: tabBarHeight + StyleSheet.hairlineWidth,
         }}
         indicatorStyle={{ backgroundColor: gray200 }}
         bounces
@@ -104,12 +107,19 @@ App Store: https://apple.com`,
         initialLayout={{ width }}
         style={{
           top: -tabBarHeight,
+          width: width + StyleSheet.hairlineWidth,
         }}
       />
       <View style={styles.center}>
         <Button primary medium label="Enroll" style={styles.button} />
       </View>
-      <Row style={styles.row}>
+      <Row
+        style={[
+          styles.row,
+          {
+            top: !insets.top ? margin.large : insets.top,
+          },
+        ]}>
         <TouchableOpacity
           hitSlop={hitBox20}
           onPress={() => navigation.goBack()}
@@ -151,7 +161,6 @@ const styles = StyleSheet.create({
   },
   row: {
     position: "absolute",
-    top: margin.large,
     width,
     paddingHorizontal: padding.large,
   },
