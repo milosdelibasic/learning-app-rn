@@ -1,6 +1,6 @@
 PODS:
   - boost (1.76.0)
-  - BugsnagReactNative (7.16.0):
+  - BugsnagReactNative (7.16.1):
     - React-Core
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
@@ -338,7 +338,7 @@ PODS:
     - react-native-config/App (= 1.4.5)
   - react-native-config/App (1.4.5):
     - React-Core
-  - react-native-pager-view (5.4.9):
+  - react-native-pager-view (5.4.11):
     - React-Core
   - react-native-safe-area-context (3.3.2):
     - React-Core
@@ -409,13 +409,13 @@ PODS:
     - React-jsi (= 0.67.2)
     - React-logger (= 0.67.2)
     - React-perflogger (= 0.67.2)
-  - RNCAsyncStorage (1.15.17):
+  - RNCAsyncStorage (1.16.1):
     - React-Core
   - RNFastImage (8.5.11):
     - React-Core
     - SDWebImage (~> 5.11.1)
     - SDWebImageWebPCoder (~> 0.8.4)
-  - RNFBApp (14.3.2):
+  - RNFBApp (14.5.0):
     - Firebase/CoreOnly (= 8.12.1)
     - React-Core
   - RNGestureHandler (2.2.0):
@@ -424,7 +424,7 @@ PODS:
     - React-Core
   - RNPermissions (3.2.0):
     - React-Core
-  - RNReanimated (2.3.1):
+  - RNReanimated (2.4.1):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -452,14 +452,14 @@ PODS:
     - React-RCTText
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.10.2):
+  - RNScreens (3.11.1):
     - React-Core
     - React-RCTImage
-  - RNShare (7.3.3):
+  - RNShare (7.3.5):
     - React-Core
   - RNSVG (12.1.1):
     - React
-  - RNVectorIcons (9.0.0):
+  - RNVectorIcons (9.1.0):
     - React-Core
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
@@ -684,7 +684,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  BugsnagReactNative: eee8e62a0d5b7ee72bba1ffa0eb3353c5d0b43bf
+  BugsnagReactNative: bd1c905fb868fae8448a913b87356dbf2b02dc80
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
   FBLazyVector: 244195e30d63d7f564c55da4410b9a24e8fbceaa
@@ -729,7 +729,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 595f76eba2176ebd8817a1fffd47b84fbdab9383
   React-logger: 23de8ea0f44fa00ee77e96060273225607fd4d78
   react-native-config: 6502b1879f97ed5ac570a029961fc35ea606cd14
-  react-native-pager-view: 3ee7d4c7697fb3ef788346e834a60cca97ed8540
+  react-native-pager-view: 7f00d63688f7df9fad86dfb0154814419cc5eb8d
   react-native-safe-area-context: 5cf05f49df9d17261e40e518481f2e334c6cd4b5
   react-native-webview: 380c1a03ec94b7ed764dac8db1e7c9952d08c93a
   React-perflogger: 3c9bb7372493e49036f07a82c44c8cf65cbe88db
@@ -744,17 +744,17 @@ SPEC CHECKSUMS:
   React-RCTVibration: 99c7f67fba7a5ade46e98e870c6ff2444484f995
   React-runtimeexecutor: 2450b43df7ffe8e805a0b3dcb2abd4282f1f1836
   ReactCommon: d98c6c96b567f9b3a15f9fd4cc302c1eda8e3cf2
-  RNCAsyncStorage: 105173940b40e85e274023966567ac11b7683cf8
+  RNCAsyncStorage: b49b4e38a1548d03b74b30e558a1d18465b94be7
   RNFastImage: 1f2cab428712a4baaf78d6169eaec7f622556dd7
-  RNFBApp: 096fb7586e167f3ba3dc7a4bf5811a19aec58735
+  RNFBApp: 06c8447270d295edc431bccd55970d8711a07a42
   RNGestureHandler: bf572f552ea324acd5b5464b8d30755b2d8c1de6
   RNKeychain: 4f63aada75ebafd26f4bc2c670199461eab85d94
   RNPermissions: bf844d392fe0ecbfbd2e4ae2b88cc32f2f09b369
-  RNReanimated: 1326679461fa5d2399d54c18ca1432ba3e816b9e
-  RNScreens: d6da2b9e29cf523832c2542f47bf1287318b1868
-  RNShare: 3185c074441b7e8897014d95ba982434a0a024a1
+  RNReanimated: 32c91e28f5780937b8efc07ddde1bab8d373fe0b
+  RNScreens: 4d83613b50b74ed277026375dc0810893b0c347f
+  RNShare: 730a2773b1e0007425f2f111dcf75208a919c902
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
-  RNVectorIcons: 4143ba35feebab8fdbe6bc43d1e776b393d47ac8
+  RNVectorIcons: 7923e585eaeb139b9f4531d25a125a1500162a0b
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
   Yoga: 9b6696970c3289e8dea34b3eda93f23e61fb8121
