@@ -74,7 +74,7 @@ const CourseInfo = ({ route, navigation }) => {
   const onShareHandler = async () => {
     try {
       const options = {
-        message: `Check out this amazing ${course?.title} course on HypeLearn app!
+        message: `Check out this amazing ${course?.title} course on PhantoxLearn app!
 Google Play: https://google.com
 App Store: https://apple.com`,
       };

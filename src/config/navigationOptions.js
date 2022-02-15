@@ -35,7 +35,7 @@ export const mainOptions = {
     <View style={{ flexDirection: "row", alignItems: "center" }}>
       {/* <Logo width={width / 3} height={height / 18} /> */}
       <Text white h5 bold>
-        HypeLearn
+        PhantoxLearn
       </Text>
     </View>
   ),

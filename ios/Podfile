@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '11.0'
 
-target 'HypeLearn' do
+target 'PhantoxLearn' do
   config = use_native_modules!
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
@@ -20,7 +20,7 @@ target 'HypeLearn' do
     :hermes_enabled => true
   )
 
-  target 'HypeLearnTests' do
+  target 'PhantoxLearnTests' do
     inherit! :complete
     # Pods for testing
   end
