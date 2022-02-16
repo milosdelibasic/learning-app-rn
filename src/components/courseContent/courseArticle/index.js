@@ -1,8 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-
 import Text from "@components/Text";
 import Row from "@components/Row";
 import Column from "@components/Column";
@@ -12,6 +10,7 @@ import NumberContainer from "../NumberContainer";
 import { sizes } from "@config/fonts";
 import { gray200 } from "@config/colors";
 import { margin, padding } from "@config/spacing";
+import Icon from "@components/Icon";
 
 const CourseArticle = ({
   article = { author: "Test", title: "Test", minutes: "5" },
@@ -29,6 +28,7 @@ const CourseArticle = ({
             </Text>
             <Row spacing="flex-start" style={styles.authorRow}>
               <Icon
+                type="materialC"
                 name="pencil"
                 style={styles.pencilIcon}
                 size={sizes.h6}
@@ -42,6 +42,7 @@ const CourseArticle = ({
         </Row>
         <Row spacing="flex-start" style={styles.right}>
           <Icon
+            type="materialC"
             name="timer-sand-full"
             size={sizes.h5}
             style={styles.icon}

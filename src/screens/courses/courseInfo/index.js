@@ -3,7 +3,6 @@ import { Dimensions, StyleSheet, View, TouchableOpacity } from "react-native";
 
 import FastImage from "react-native-fast-image";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
-import Icon from "react-native-vector-icons/Ionicons";
 import Share from "react-native-share";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -12,6 +11,7 @@ import CourseOverview from "./CourseOverview";
 import Text from "@components/Text";
 import Button from "@components/Button";
 import Row from "@components/Row";
+import Icon from "@components/Icon";
 
 import { gray200, gray50, gray600, gray900 } from "@config/colors";
 import fonts, { verticalScale } from "@config/fonts";
@@ -126,13 +126,13 @@ App Store: https://apple.com`,
           hitSlop={hitBox20}
           onPress={() => navigation.goBack()}
           style={styles.back}>
-          <Icon name="md-arrow-back" size={30} color={gray50} />
+          <Icon type="ionicon" name="md-arrow-back" size={30} color={gray50} />
         </TouchableOpacity>
         <TouchableOpacity
           hitSlop={hitBox20}
           onPress={onShareHandler}
           style={[styles.back, styles.shareIcon]}>
-          <Icon name="share-social" size={24} color={gray50} />
+          <Icon type="ionicon" name="share-social" size={24} color={gray50} />
         </TouchableOpacity>
       </Row>
     </View>

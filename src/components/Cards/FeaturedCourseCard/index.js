@@ -3,10 +3,10 @@ import { Dimensions, StyleSheet, TouchableOpacity, View } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 import FastImage from "react-native-fast-image";
-import Icon from "react-native-vector-icons/Ionicons";
 
 import Text from "@components/Text";
 import Row from "@components/Row";
+import Icon from "@components/Icon";
 import Button from "@components/Button";
 
 import { borderRadius, margin, padding } from "@config/spacing";
@@ -39,6 +39,7 @@ const FeaturedCourseCard = ({ last, course }) => {
         resizeMode={FastImage.resizeMode.cover}>
         <Row style={styles.rating}>
           <Icon
+            type="ionicon"
             name="star"
             color="#FFD700"
             size={sizes.h5}
@@ -55,6 +56,7 @@ const FeaturedCourseCard = ({ last, course }) => {
         </Text>
         <Row spacing="flex-start" style={styles.spacing}>
           <Icon
+            type="ionicon"
             name="person"
             color={grayDark}
             size={sizes.h6}

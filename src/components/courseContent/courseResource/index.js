@@ -1,12 +1,10 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import Icon from "react-native-vector-icons/FontAwesome5";
-import FAIcon from "react-native-vector-icons/FontAwesome";
-
 import Text from "@components/Text";
 import Row from "@components/Row";
 import Divider from "@components/Divider";
+import Icon from "@components/Icon";
 import NumberContainer from "../NumberContainer";
 
 import { margin, padding } from "@config/spacing";
@@ -22,11 +20,17 @@ const CourseResource = ({
   const renderIcon = () => {
     switch (resource?.type) {
       case "pdf":
-        return <Icon name="file-pdf" color={gray200} size={sizes.h3} />;
+        return (
+          <Icon type="fa5" name="file-pdf" color={gray200} size={sizes.h3} />
+        );
       case "txt":
-        return <FAIcon name="file-text" color={gray200} size={sizes.h3} />;
+        return (
+          <Icon type="fa" name="file-text" color={gray200} size={sizes.h3} />
+        );
       case "img":
-        return <Icon name="file-image" color={gray200} size={sizes.h3} />;
+        return (
+          <Icon type="fa5" name="file-image" color={gray200} size={sizes.h3} />
+        );
 
       default:
         return <></>;

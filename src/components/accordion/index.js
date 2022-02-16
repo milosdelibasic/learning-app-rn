@@ -9,13 +9,9 @@ import {
   View,
 } from "react-native";
 
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import MaterialCIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import Icon from "react-native-vector-icons/Ionicons";
-import EntypoIcon from "react-native-vector-icons/Entypo";
-
 import Text from "@components/Text";
 import Row from "@components/Row";
+import Icon from "@components/Icon";
 
 import { gray200, gray50, gray600, grayDark } from "@config/colors";
 import { borderRadius, margin, padding } from "@config/spacing";
@@ -36,6 +32,7 @@ const Accordion = ({ type, icon, title, spacing, children }) => {
       case "section":
         return (
           <Icon
+            type="ionicon"
             name="list"
             color={gray50}
             size={sizes.h3}
@@ -44,7 +41,8 @@ const Accordion = ({ type, icon, title, spacing, children }) => {
         );
       case "video":
         return (
-          <EntypoIcon
+          <Icon
+            type="entypo"
             name="folder-video"
             color={gray50}
             size={sizes.h3}
@@ -53,7 +51,8 @@ const Accordion = ({ type, icon, title, spacing, children }) => {
         );
       case "exercise":
         return (
-          <EntypoIcon
+          <Icon
+            type="entypo"
             name="code"
             color={gray50}
             size={sizes.h3}
@@ -62,7 +61,8 @@ const Accordion = ({ type, icon, title, spacing, children }) => {
         );
       case "article":
         return (
-          <MaterialIcons
+          <Icon
+            type="material"
             name="text-snippet"
             color={gray50}
             size={sizes.h3}
@@ -71,7 +71,8 @@ const Accordion = ({ type, icon, title, spacing, children }) => {
         );
       case "download":
         return (
-          <MaterialIcons
+          <Icon
+            type="material"
             name="cloud-download"
             color={gray50}
             size={sizes.h3}
@@ -80,7 +81,8 @@ const Accordion = ({ type, icon, title, spacing, children }) => {
         );
       case "certificate":
         return (
-          <MaterialCIcons
+          <Icon
+            type="materialC"
             name="certificate"
             color={gray50}
             size={sizes.h3}
@@ -90,6 +92,7 @@ const Accordion = ({ type, icon, title, spacing, children }) => {
       case "achievements":
         return (
           <Icon
+            type="ionicon"
             name="trophy"
             color={gray50}
             size={sizes.h3}
@@ -141,7 +144,8 @@ const Accordion = ({ type, icon, title, spacing, children }) => {
             </Text>
           </Row>
           <Animated.View style={{ transform: [{ rotateZ: arrowAngle }] }}>
-            <MaterialIcons
+            <Icon
+              type="material"
               name="keyboard-arrow-down"
               size={sizes.h4}
               color={grayDark}

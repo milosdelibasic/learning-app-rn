@@ -1,11 +1,10 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 
-import Icon from "react-native-vector-icons/FontAwesome5";
-
 import Text from "@components/Text";
 import Row from "@components/Row";
 import Divider from "@components/Divider";
+import Icon from "@components/Icon";
 import NumberContainer from "../NumberContainer";
 
 import { margin, padding } from "@config/spacing";
@@ -28,6 +27,7 @@ const CourseVideo = ({
         </Row>
         <Row spacing="flex-start" style={styles.right}>
           <Icon
+            type="fa5"
             name="clock"
             style={styles.spacing}
             size={sizes.h5}

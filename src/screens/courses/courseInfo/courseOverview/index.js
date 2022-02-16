@@ -7,12 +7,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import Icon from "react-native-vector-icons/Ionicons";
-import IconFontAwesome from "react-native-vector-icons/FontAwesome5";
-
 import Text from "@components/Text";
 import Row from "@components/Row";
 import YoutubeVideo from "@components/YoutubeVideo";
+import Icon from "@components/Icon";
 
 import { gray50, gray900 } from "@config/colors";
 import { margin, padding } from "@config/spacing";
@@ -52,6 +50,7 @@ const CourseOverview = ({ course, extraHeight }) => {
           </Text>
           <TouchableOpacity onPress={handleSaveCourse} hitSlop={hitBox20}>
             <Icon
+              type="ionicon"
               name={savedCourse ? "bookmark" : "bookmark-outline"}
               size={sizes.h3}
               color={gray50}
@@ -60,7 +59,8 @@ const CourseOverview = ({ course, extraHeight }) => {
         </Row>
 
         <Row spacing="flex-start" style={styles.row}>
-          <IconFontAwesome
+          <Icon
+            type="fa5"
             name="calendar"
             size={sizes.h5}
             color={gray50}
@@ -71,7 +71,8 @@ const CourseOverview = ({ course, extraHeight }) => {
           </Text>
         </Row>
         <Row spacing="flex-start" style={styles.row}>
-          <IconFontAwesome
+          <Icon
+            type="fa5"
             name="book"
             size={sizes.h5}
             color={gray50}
@@ -83,6 +84,7 @@ const CourseOverview = ({ course, extraHeight }) => {
         </Row>
         <Row spacing="flex-start" style={styles.row}>
           <Icon
+            type="ionicon"
             name="star"
             size={sizes.h5}
             color={gray50}

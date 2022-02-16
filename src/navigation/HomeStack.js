@@ -2,12 +2,11 @@ import React from "react";
 import { StyleSheet } from "react-native";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Icon from "react-native-vector-icons/FontAwesome5";
-import FeatherIcon from "react-native-vector-icons/Feather";
-import IoniconIcon from "react-native-vector-icons/Ionicons";
 
 import Home from "@screens/Home";
 import Profile from "@screens/Profile";
+
+import Icon from "@components/Icon";
 
 import { homeStack } from "@config/navigator";
 import { mainOptions, tab } from "@config/navigationOptions";
@@ -26,6 +25,7 @@ const HomeStack = () => {
           tabBarLabel: "Home",
           tabBarIcon: ({ focused, color, size }) => (
             <Icon
+              type="fa5"
               name={focused ? "home" : "home"}
               size={size}
               color={color}
@@ -41,7 +41,8 @@ const HomeStack = () => {
         options={{
           tabBarLabel: "Coding",
           tabBarIcon: ({ focused, color, size }) => (
-            <FeatherIcon
+            <Icon
+              type="feather"
               name={focused ? "code" : "code"}
               size={size}
               color={color}
@@ -57,6 +58,7 @@ const HomeStack = () => {
           tabBarLabel: "Learn",
           tabBarIcon: ({ focused, color, size }) => (
             <Icon
+              type="fa5"
               name={focused ? "book" : "book"}
               size={size}
               color={color}
@@ -71,7 +73,8 @@ const HomeStack = () => {
         options={{
           tabBarLabel: "Community",
           tabBarIcon: ({ focused, color, size }) => (
-            <IoniconIcon
+            <Icon
+              type="ionicon"
               name={focused ? "chatbubble" : "chatbubble"}
               size={size}
               color={color}
@@ -87,6 +90,7 @@ const HomeStack = () => {
           tabBarLabel: "Profile",
           tabBarIcon: ({ focused, color, size }) => (
             <Icon
+              type="fa5"
               name={focused ? "user-alt" : "user-alt"}
               size={size}
               color={color}

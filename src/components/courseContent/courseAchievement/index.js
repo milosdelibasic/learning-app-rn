@@ -1,11 +1,10 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import Icon from "react-native-vector-icons/Ionicons";
-
 import Text from "@components/Text";
 import Row from "@components/Row";
 import Column from "@components/Column";
+import Icon from "@components/Icon";
 
 import { borderRadius, margin } from "@config/spacing";
 import { gray200, gray600 } from "@config/colors";
@@ -15,9 +14,18 @@ const CourseAchievement = ({ achievements }) => {
   const renderIcon = type => {
     switch (type) {
       case "js-guru":
-        return <Icon name="logo-javascript" color={gray200} size={sizes.h3} />;
+        return (
+          <Icon
+            type="ionicon"
+            name="logo-javascript"
+            color={gray200}
+            size={sizes.h3}
+          />
+        );
       case "medal":
-        return <Icon name="medal" color={gray200} size={sizes.h3} />;
+        return (
+          <Icon type="ionicon" name="medal" color={gray200} size={sizes.h3} />
+        );
 
       default:
         return <></>;

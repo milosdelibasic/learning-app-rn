@@ -1,13 +1,10 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import FAIcon from "react-native-vector-icons/FontAwesome";
-import Icon from "react-native-vector-icons/Feather";
-
 import Text from "@components/Text";
 import Row from "@components/Row";
 import Divider from "@components/Divider";
+import Icon from "@components/Icon";
 
 import { sizes } from "@config/fonts";
 import { gray200, gray400 } from "@config/colors";
@@ -22,7 +19,8 @@ const CourseExercise = ({
     switch (exercise?.type) {
       case "drag":
         return (
-          <MaterialIcons
+          <Icon
+            type="material"
             name="drag-indicator"
             color={gray200}
             size={sizes.h3}
@@ -30,10 +28,15 @@ const CourseExercise = ({
         );
       case "question":
         return (
-          <FAIcon name="question-circle-o" color={gray200} size={sizes.h3} />
+          <Icon
+            type="fa"
+            name="question-circle-o"
+            color={gray200}
+            size={sizes.h3}
+          />
         );
       case "code":
-        return <FAIcon name="code" color={gray200} size={sizes.h3} />;
+        return <Icon type="fa" name="code" color={gray200} size={sizes.h3} />;
 
       default:
         return <></>;
@@ -44,6 +47,7 @@ const CourseExercise = ({
       <Row style={styles.container}>
         <Row spacing="flex-start" style={styles.left}>
           <Icon
+            type="feather"
             name="check-circle"
             size={sizes.h3}
             color={gray200}

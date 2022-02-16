@@ -8,11 +8,11 @@ import {
 } from "react-native";
 
 import { useDispatch, useSelector } from "react-redux";
-import Icon from "react-native-vector-icons/Ionicons";
 
 import Text from "@components/Text";
 import Button from "@components/Button";
 import Row from "@components/Row";
+import Icon from "@components/Icon";
 
 import { actions, modalSelector } from "@modules/modal/reducer";
 
@@ -64,7 +64,12 @@ const Modal = () => {
             )}
             {!title && <View />}
             <TouchableOpacity onPress={closeModal} hitSlop={hitBox10}>
-              <Icon name="close-circle" color={warning} size={sizes.h2} />
+              <Icon
+                type="ionicon"
+                name="close-circle"
+                color={warning}
+                size={sizes.h2}
+              />
             </TouchableOpacity>
           </Row>
           <View style={styles.contentContainer}>{content}</View>

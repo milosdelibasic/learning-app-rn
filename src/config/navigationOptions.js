@@ -1,10 +1,8 @@
 import React from "react";
 import { Dimensions, View, TouchableOpacity, Pressable } from "react-native";
 
-import Icon from "react-native-vector-icons/Ionicons";
-import MaterialIcon from "react-native-vector-icons/MaterialCommunityIcons";
-
 import Text from "@components/Text";
+import Icon from "@components/Icon";
 
 import * as RootNavigation from "@navigation/RootNavigation";
 import { padding } from "@config/spacing";
@@ -48,12 +46,12 @@ export const mainOptions = {
   ),
   headerLeft: () => (
     <TouchableOpacity hitSlop={hitBox20} onPress={() => {}}>
-      <Icon name="menu-outline" size={30} color={gray50} />
+      <Icon type="ionicon" name="menu-outline" size={30} color={gray50} />
     </TouchableOpacity>
   ),
   headerRight: () => (
     <TouchableOpacity hitSlop={hitBox20} onPress={() => {}}>
-      <MaterialIcon name="dots-vertical" size={30} color={gray50} />
+      <Icon type="materialC" name="dots-vertical" size={30} color={gray50} />
     </TouchableOpacity>
   ),
   headerLeftContainerStyle: {
@@ -75,7 +73,7 @@ export const backOptions = {
     <TouchableOpacity
       hitSlop={hitBox20}
       onPress={() => RootNavigation.goBack()}>
-      <Icon name="md-arrow-back" size={30} color={gray50} />
+      <Icon type="ionicon" name="md-arrow-back" size={30} color={gray50} />
     </TouchableOpacity>
   ),
 };
