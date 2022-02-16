@@ -21,6 +21,7 @@ import { actions as modalActions } from "@modules/modal/reducer";
 
 import { grayDark } from "@config/colors";
 import { padding } from "@config/spacing";
+import { mainStack } from "@config/navigator";
 
 const Home = ({ navigation }) => {
   const { user } = useSelector(authSelector);
