@@ -1,7 +1,9 @@
-import { BaseToast, ErrorToast } from "react-native-toast-message";
 import React from "react";
-import { gray100, gray50, gray900, success, warning } from "./colors";
-import fonts, { sizes } from "./fonts";
+
+import { BaseToast, ErrorToast } from "react-native-toast-message";
+
+import { gray50, gray900, success, warning } from "@config/colors";
+import { sizes } from "@config/fonts";
 
 export const toastConfig = {
   success: props => (

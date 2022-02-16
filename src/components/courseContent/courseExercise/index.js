@@ -5,13 +5,13 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import FAIcon from "react-native-vector-icons/FontAwesome";
 import Icon from "react-native-vector-icons/Feather";
 
-import { sizes } from "../../../config/fonts";
-import { gray200, gray400, gray50 } from "../../../config/colors";
-import { margin, padding } from "../../../config/spacing";
+import Text from "@components/Text";
+import Row from "@components/Row";
+import Divider from "@components/Divider";
 
-import Row from "../../row";
-import Text from "../../text";
-import Divider from "../../divider";
+import { sizes } from "@config/fonts";
+import { gray200, gray400 } from "@config/colors";
+import { margin, padding } from "@config/spacing";
 
 const CourseExercise = ({
   exercise = { title: "", type: "drag" },

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import validate from "../src/utils/validationWrapper";
+import validate from "@utils/validationWrapper";
 
 function useFormInput(fieldName, initialValue) {
   const [value, setValue] = useState("");

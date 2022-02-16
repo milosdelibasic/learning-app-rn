@@ -1,13 +1,14 @@
-import Bugsnag from "@bugsnag/react-native";
 import React from "react";
-import "react-native-gesture-handler";
-
-!__DEV__ && Bugsnag.start();
-
 import { AppRegistry } from "react-native";
+
+import Bugsnag from "@bugsnag/react-native";
+import "react-native-gesture-handler";
+import { Provider as PaperProvider } from "react-native-paper";
+
 import App from "./App";
 import { name as appName } from "./app.json";
-import { Provider as PaperProvider } from "react-native-paper";
+
+!__DEV__ && Bugsnag.start();
 
 export default function Main() {
   return (

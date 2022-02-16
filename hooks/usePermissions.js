@@ -1,5 +1,6 @@
-import {useState} from 'react';
-import {Platform} from 'react-native';
+import { logger } from "@config/helpers";
+import { useState } from "react";
+import { Platform } from "react-native";
 import {
   PERMISSIONS,
   RESULTS,
@@ -9,10 +10,10 @@ import {
   requestNotifications,
   checkMultiple,
   requestMultiple,
-} from 'react-native-permissions';
+} from "react-native-permissions";
 
-const PLATFORM_ANDROID = Platform.OS === 'android';
-const PLATFORM_IOS = Platform.OS === 'ios';
+const PLATFORM_ANDROID = Platform.OS === "android";
+const PLATFORM_IOS = Platform.OS === "ios";
 
 const permissions = {
   android: {
@@ -30,15 +31,15 @@ const permissions = {
 export const checkNotification = async () => {
   try {
     const result = await checkNotifications();
-    console.log('notification result', result.status);
-    const granted = result.status === 'granted';
+    logger("notification result", result.status);
+    const granted = result.status === "granted";
     if (!granted) {
       const res = await requestNotificationPermissions();
       return res;
     }
     return result.status;
   } catch (e) {
-    console.log('Check Notification Permissions error', e);
+    logger("Check Notification Permissions error", e);
   }
 };
 
@@ -47,14 +48,14 @@ const requestNotificationPermissions = async () => {
     const res = await requestNotifications([]);
     return res.status;
   } catch (e) {
-    console.log('Request Notification Permissions error', e);
+    logger("Request Notification Permissions error", e);
   }
 };
 
 export const checkPermissions = async (permissionsArray, checkBlocked) => {
   try {
     let nativePermissions;
-    if (typeof permissionsArray === 'string') {
+    if (typeof permissionsArray === "string") {
       nativePermissions = [permissions[Platform.OS][permissionsArray]];
     } else if (permissionsArray.length > 0) {
       nativePermissions = permissionsArray.map(
@@ -63,20 +64,20 @@ export const checkPermissions = async (permissionsArray, checkBlocked) => {
     } else return;
     let statuses = await checkMultiple(nativePermissions);
     if (Object.values(statuses).every(i => i === RESULTS.GRANTED)) {
-      return {blocked: false, granted: true};
+      return { blocked: false, granted: true };
     }
     if (Object.values(statuses).includes(RESULTS.DENIED)) {
       statuses = await requestMultiple(nativePermissions);
       if (Object.values(statuses).every(i => i === RESULTS.GRANTED)) {
-        return {blocked: false, granted: true};
+        return { blocked: false, granted: true };
       }
     }
     if (checkBlocked && Object.values(statuses).includes(RESULTS.BLOCKED)) {
-      return {blocked: true, granted: false};
+      return { blocked: true, granted: false };
     }
-    return {blocked: false, granted: false};
+    return { blocked: false, granted: false };
   } catch (e) {
-    console.log('checking permissions', e);
+    logger("checking permissions", e);
   }
 };
 
@@ -92,25 +93,25 @@ export const usePermission = permission => {
       );
       switch (result) {
         case RESULTS.UNAVAILABLE:
-          setPermissionStatus('unavailable');
+          setPermissionStatus("unavailable");
           break;
         case RESULTS.DENIED:
-          setPermissionStatus('denied');
+          setPermissionStatus("denied");
           requestPermission();
           break;
         case RESULTS.LIMITED:
-          setPermissionStatus('limited');
+          setPermissionStatus("limited");
           break;
         case RESULTS.GRANTED:
-          setPermissionStatus('granted');
+          setPermissionStatus("granted");
           break;
         case RESULTS.BLOCKED:
-          setPermissionStatus('blocked');
+          setPermissionStatus("blocked");
           requestPermission();
           break;
       }
     } catch (e) {
-      console.log(e);
+      logger(e);
     }
   };
 
@@ -123,23 +124,23 @@ export const usePermission = permission => {
       );
       switch (result) {
         case RESULTS.UNAVAILABLE:
-          setPermissionStatus('unavailable');
+          setPermissionStatus("unavailable");
           break;
         case RESULTS.DENIED:
-          setPermissionStatus('denied');
+          setPermissionStatus("denied");
           break;
         case RESULTS.LIMITED:
-          setPermissionStatus('limited');
+          setPermissionStatus("limited");
           break;
         case RESULTS.GRANTED:
-          setPermissionStatus('granted');
+          setPermissionStatus("granted");
           break;
         case RESULTS.BLOCKED:
-          setPermissionStatus('blocked');
+          setPermissionStatus("blocked");
           break;
       }
     } catch (e) {
-      console.log(e);
+      logger(e);
     }
   };
 

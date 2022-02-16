@@ -1,8 +1,9 @@
-import { StyleSheet, useWindowDimensions, View } from "react-native";
 import React from "react";
-import { gray900 } from "../../../config/colors";
-import Text from "../../../components/text";
+import { StyleSheet, useWindowDimensions, View } from "react-native";
+
 import { SceneMap, TabView } from "react-native-tab-view";
+
+import { gray900 } from "@config/colors";
 
 const FeaturedCourses = () => {
   const FirstRoute = () => (

@@ -1,9 +1,11 @@
-import { View, StyleSheet } from "react-native";
 import React from "react";
-import { gray50, grayDark } from "../../../config/colors";
-import Text from "../../../components/text";
-import Button from "../../../components/button";
-import { authStack } from "../../../config/navigator";
+import { View, StyleSheet } from "react-native";
+
+import Text from "@components/Text";
+import Button from "@components/Button";
+
+import { gray50, grayDark } from "@config/colors";
+import { authStack } from "@config/navigator";
 
 const AuthInit = ({ navigation }) => {
   return (

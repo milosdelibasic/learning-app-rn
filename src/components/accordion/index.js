@@ -1,3 +1,4 @@
+import React, { useEffect, useRef, useState } from "react";
 import {
   Animated,
   Dimensions,
@@ -7,16 +8,18 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useEffect, useRef, useState } from "react";
-import Text from "../text";
-import { gray200, gray50, gray600, grayDark } from "../../config/colors";
-import { borderRadius, margin, padding } from "../../config/spacing";
-import Row from "../row";
+
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import MaterialCIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Icon from "react-native-vector-icons/Ionicons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
-import { sizes } from "../../config/fonts";
+
+import Text from "@components/Text";
+import Row from "@components/Row";
+
+import { gray200, gray50, gray600, grayDark } from "@config/colors";
+import { borderRadius, margin, padding } from "@config/spacing";
+import { sizes } from "@config/fonts";
 
 const { height } = Dimensions.get("screen");
 

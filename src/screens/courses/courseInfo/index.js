@@ -1,20 +1,22 @@
-import { Dimensions, StyleSheet, View, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
-import Text from "../../../components/text";
+import { Dimensions, StyleSheet, View, TouchableOpacity } from "react-native";
+
 import FastImage from "react-native-fast-image";
-import { gray200, gray50, gray600, gray900 } from "../../../config/colors";
-import { margin, padding } from "../../../config/spacing";
-import Icon from "react-native-vector-icons/Ionicons";
-import { hitBox20 } from "../../../config/helpers";
-import fonts, { verticalScale } from "../../../config/fonts";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
-import CourseOverview from "./courseOverview";
-import CourseContent from "./courseContent";
-import Row from "../../../components/row";
+import Icon from "react-native-vector-icons/Ionicons";
 import Share from "react-native-share";
-import { handleError } from "../../../utils/error";
-import Button from "../../../components/button";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+import CourseContent from "./CourseContent";
+import CourseOverview from "./CourseOverview";
+import Text from "@components/Text";
+import Button from "@components/Button";
+import Row from "@components/Row";
+
+import { gray200, gray50, gray600, gray900 } from "@config/colors";
+import fonts, { verticalScale } from "@config/fonts";
+import { margin, padding } from "@config/spacing";
+import { hitBox20 } from "@config/helpers";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -117,7 +119,7 @@ App Store: https://apple.com`,
         style={[
           styles.row,
           {
-            top: !insets.top ? margin.large : insets.top,
+            top: !insets.top || insets.top === 0 ? margin.large : insets.top,
           },
         ]}>
         <TouchableOpacity

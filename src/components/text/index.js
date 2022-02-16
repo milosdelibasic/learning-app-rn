@@ -1,8 +1,9 @@
 import React from "react";
 import { StyleSheet, Text as NativeText } from "react-native";
-import { gray400, gray50, gray900 } from "../../config/colors";
-import fonts, { sizes } from "../../config/fonts";
-import { lineHeight } from "../../config/spacing";
+
+import { gray400, gray50, gray900 } from "@config/colors";
+import fonts, { sizes } from "@config/fonts";
+import { lineHeight } from "@config/spacing";
 
 const getSize = ({ h1, h2, h3, h4, h5, h6 }) => {
   const sizeStyles = [];

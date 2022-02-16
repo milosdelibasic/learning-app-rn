@@ -1,13 +1,16 @@
-import { View, Text, StyleSheet } from "react-native";
 import React from "react";
-import { homeStack } from "../config/navigator";
-import Home from "../screens/home";
+import { StyleSheet } from "react-native";
+
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { mainOptions, tab } from "../config/navigationOptions";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import IoniconIcon from "react-native-vector-icons/Ionicons";
-import Profile from "../screens/profile";
+
+import Home from "@screens/Home";
+import Profile from "@screens/Profile";
+
+import { homeStack } from "@config/navigator";
+import { mainOptions, tab } from "@config/navigationOptions";
 
 const Tab = createBottomTabNavigator();
 

@@ -1,10 +1,13 @@
-import { Dimensions, StyleSheet, ScrollView } from "react-native";
 import React from "react";
-import Text from "../../text";
-import { margin, padding } from "../../../config/spacing";
-import FeaturedCourseCard from "../../featuredCourseCard";
+import { Dimensions, StyleSheet, ScrollView } from "react-native";
+
+import FeaturedCourseCard from "@components/Cards/FeaturedCourseCard";
+
+import { useSnapping } from "@hooks/useSnapping";
+
+import { margin, padding } from "@config/spacing";
+
 import { featuredCourses } from "../../../dummyData/featuredCourses";
-import { useSnapping } from "../../../../hooks/useSnapping";
 
 const { width } = Dimensions.get("screen");
 

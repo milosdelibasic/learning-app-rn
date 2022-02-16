@@ -1,14 +1,19 @@
-import { StyleSheet, TextInput, View } from "react-native";
 import React, { useState } from "react";
-import Text from "../../../components/text";
-import { grayDark } from "../../../config/colors";
-import t from "../../../config/constants";
-import useFormInput from "../../../../hooks/useFormInput";
-import { padding } from "../../../config/spacing";
-import Button from "../../../components/button";
-import { actions } from "../../../modules/auth/reducer";
+import { StyleSheet, View } from "react-native";
+
 import { useDispatch } from "react-redux";
-import Input from "../../../components/input";
+
+import Text from "@components/Text";
+import Button from "@components/Button";
+import Input from "@components/Input";
+
+import useFormInput from "@hooks/useFormInput";
+
+import { actions } from "@modules/auth/reducer";
+
+import { grayDark } from "@config/colors";
+import { padding } from "@config/spacing";
+import t from "@config/constants";
 
 const Register = () => {
   const [submit, setSubmit] = useState(false);
@@ -19,7 +24,6 @@ const Register = () => {
   const dispatch = useDispatch();
 
   const onSubmitHandler = () => {
-    console.log("press");
     setSubmit(true);
     if (
       !email.error &&

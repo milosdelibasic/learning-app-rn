@@ -1,7 +1,9 @@
-import { StyleSheet, View } from "react-native";
 import React from "react";
-import Text from "../../../components/text";
-import { grayDark } from "../../../config/colors";
+import { StyleSheet, View } from "react-native";
+
+import Text from "@components/Text";
+
+import { grayDark } from "@config/colors";
 
 const Login = () => {
   return (

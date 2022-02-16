@@ -1,16 +1,18 @@
-import { ScrollView, StyleSheet } from "react-native";
 import React from "react";
-import { gray900 } from "../../../../config/colors";
-import { margin, padding } from "../../../../config/spacing";
-import Text from "../../../../components/text";
-import Accordion from "../../../../components/accordion";
-import CourseSection from "../../../../components/courseContent/courseSection";
-import CourseExercise from "../../../../components/courseContent/courseExercise";
-import CourseVideo from "../../../../components/courseContent/courseVideo";
-import CourseArticle from "../../../../components/courseContent/courseArticle";
-import CourseResource from "../../../../components/courseContent/courseResource";
-import CourseCertificate from "../../../../components/courseContent/courseCertificate";
-import CourseAchievement from "../../../../components/courseContent/courseAchievement";
+import { ScrollView, StyleSheet } from "react-native";
+
+import { gray900 } from "@config/colors";
+import { margin, padding } from "@config/spacing";
+
+import Text from "@components/Text";
+import Accordion from "@components/Accordion";
+import CourseSection from "@components/courseContent/CourseSection";
+import CourseCertificate from "@components/courseContent/CourseCertificate";
+import CourseExercise from "@components/courseContent/CourseExercise";
+import CourseVideo from "@components/courseContent/CourseVideo";
+import CourseAchievement from "@components/courseContent/CourseAchievement";
+import CourseArticle from "@components/courseContent/CourseArticle";
+import CourseResource from "@components/courseContent/CourseResource";
 
 const CourseContent = ({ course }) => {
   const {

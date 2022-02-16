@@ -1,12 +1,15 @@
-import { StyleSheet, View } from "react-native";
 import React from "react";
-import Row from "../../row";
-import { borderRadius, margin } from "../../../config/spacing";
-import { gray200, gray600 } from "../../../config/colors";
+import { StyleSheet, View } from "react-native";
+
 import Icon from "react-native-vector-icons/Ionicons";
-import { sizes } from "../../../config/fonts";
-import Column from "../../column";
-import Text from "../../text";
+
+import Text from "@components/Text";
+import Row from "@components/Row";
+import Column from "@components/Column";
+
+import { borderRadius, margin } from "@config/spacing";
+import { gray200, gray600 } from "@config/colors";
+import { sizes } from "@config/fonts";
 
 const CourseAchievement = ({ achievements }) => {
   const renderIcon = type => {

@@ -1,9 +1,11 @@
 import React from "react";
 import { Dimensions, StyleSheet, TouchableOpacity, View } from "react-native";
-import Text from "../text/";
-import { borderRadius } from "../../config/spacing";
-import { verticalScale } from "../../config/fonts";
-import { gray50, grayDark } from "../../config/colors";
+
+import Text from "@components/Text";
+
+import { borderRadius } from "@config/spacing";
+import { verticalScale } from "@config/fonts";
+import { gray50, grayDark } from "@config/colors";
 
 const { width, height } = Dimensions.get("screen");
 const getSize = ({ small, medium, large }) => {

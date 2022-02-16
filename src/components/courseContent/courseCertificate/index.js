@@ -1,10 +1,11 @@
-import { StyleSheet, View } from "react-native";
 import React from "react";
-import Row from "../../row";
-import Button from "../../button";
-import Column from "../../column";
-import { borderRadius, margin, padding } from "../../../config/spacing";
-import Text from "../../text";
+import { StyleSheet, View } from "react-native";
+
+import Text from "@components/Text";
+import Column from "@components/Column";
+import Button from "@components/Button";
+
+import { borderRadius, margin, padding } from "@config/spacing";
 
 const CourseCertificate = () => {
   return (

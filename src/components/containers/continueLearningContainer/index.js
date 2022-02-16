@@ -1,9 +1,12 @@
-import { Dimensions, ScrollView, StyleSheet } from "react-native";
 import React from "react";
-import ContinueLearningCard from "../../continueLearningCard";
-import { margin, padding } from "../../../config/spacing";
+import { Dimensions, ScrollView, StyleSheet } from "react-native";
+
+import ContinueLearningCard from "@components/Cards/ContinueLearningCard";
+
+import { useSnapping } from "@hooks/useSnapping";
+
+import { margin, padding } from "@config/spacing";
 import { continueLearning } from "../../../dummyData/continueLearning";
-import { useSnapping } from "../../../../hooks/useSnapping";
 
 const { width } = Dimensions.get("screen");
 

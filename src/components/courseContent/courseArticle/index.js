@@ -1,14 +1,17 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import Divider from "../../divider";
-import Row from "../../row";
-import Column from "../../column";
-import Text from "../../text";
-import NumberContainer from "../numberContainer";
+
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { sizes } from "../../../config/fonts";
-import { gray200 } from "../../../config/colors";
-import { margin, padding } from "../../../config/spacing";
+
+import Text from "@components/Text";
+import Row from "@components/Row";
+import Column from "@components/Column";
+import Divider from "@components/Divider";
+import NumberContainer from "../NumberContainer";
+
+import { sizes } from "@config/fonts";
+import { gray200 } from "@config/colors";
+import { margin, padding } from "@config/spacing";
 
 const CourseArticle = ({
   article = { author: "Test", title: "Test", minutes: "5" },

@@ -1,17 +1,24 @@
-import { LogBox, View } from "react-native";
 import React, { useEffect } from "react";
+import { LogBox, View } from "react-native";
+
 import Config from "react-native-config";
 import { NavigationContainer } from "@react-navigation/native";
-import { navigationRef } from "./src/navigation/RootNavigation";
 import { Provider } from "react-redux";
-import RootSwitch from "./src/navigation/RootSwitch";
-import configureStore from "./config-store";
 import Toast from "react-native-toast-message";
-import { toastConfig } from "./src/config/toast";
-import { injectStore } from "./src/modules/axiosConfig";
-import { gray900 } from "./src/config/colors";
 import { enableScreens } from "react-native-screens";
-import Modal from "./src/components/modal";
+
+import Modal from "@components/Modal";
+
+import { navigationRef } from "@navigation/RootNavigation";
+import RootSwitch from "@navigation/RootSwitch";
+
+import { injectStore } from "@modules/axiosConfig";
+
+import configureStore from "./config-store";
+import { toastConfig } from "@config/toast";
+import { gray900 } from "@config/colors";
+import { logger } from "@config/helpers";
+
 const { store } = configureStore();
 
 enableScreens(true);
@@ -20,7 +27,7 @@ injectStore(store); //for using store outside functional components
 
 const App = () => {
   useEffect(() => {
-    __DEV__ && console.log("Environment running: ", Config.ENVIRONMENT);
+    logger("Environment running: ", Config.ENVIRONMENT);
   }, []);
 
   LogBox.ignoreLogs([

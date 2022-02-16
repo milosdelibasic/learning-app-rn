@@ -1,11 +1,14 @@
-import { StyleSheet, View } from "react-native";
 import React from "react";
-import Text from "../../text";
-import { gray200, gray400 } from "../../../config/colors";
-import Row from "../../row";
-import { margin } from "../../../config/spacing";
+import { StyleSheet, View } from "react-native";
+
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { sizes } from "../../../config/fonts";
+
+import Text from "@components/Text";
+import Row from "@components/Row";
+
+import { gray200, gray400 } from "@config/colors";
+import { margin } from "@config/spacing";
+import { sizes } from "@config/fonts";
 
 const CourseSection = ({
   section = { title: "test", time: 2 },

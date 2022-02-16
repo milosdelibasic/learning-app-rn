@@ -1,6 +1,7 @@
-import { View, Text } from "react-native";
 import React from "react";
-import { grayDark } from "../../config/colors";
+import { View, Text } from "react-native";
+
+import { grayDark } from "@config/colors";
 
 const Profile = () => {
   return (

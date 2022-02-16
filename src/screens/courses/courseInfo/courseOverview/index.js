@@ -1,22 +1,25 @@
+import React, { useState } from "react";
 import {
   StyleSheet,
   ScrollView,
   View,
   Dimensions,
   TouchableOpacity,
-  ActivityIndicator,
 } from "react-native";
-import React, { useCallback, useEffect, useState } from "react";
-import { gray50, gray900 } from "../../../../config/colors";
-import { margin, padding } from "../../../../config/spacing";
-import Text from "../../../../components/text";
+
 import Icon from "react-native-vector-icons/Ionicons";
 import IconFontAwesome from "react-native-vector-icons/FontAwesome5";
-import { sizes } from "../../../../config/fonts";
-import Row from "../../../../components/row";
-import { hitBox20, numberWithSpaces } from "../../../../config/helpers";
-import { handleError, handleSuccess } from "../../../../utils/error";
-import YoutubeVideo from "../../../../components/youtubeVideo";
+
+import Text from "@components/Text";
+import Row from "@components/Row";
+import YoutubeVideo from "@components/YoutubeVideo";
+
+import { gray50, gray900 } from "@config/colors";
+import { margin, padding } from "@config/spacing";
+import { sizes } from "@config/fonts";
+
+import { hitBox20, numberWithSpaces } from "@config/helpers";
+import { handleError, handleSuccess } from "@utils/error";
 
 const { width } = Dimensions.get("screen");
 

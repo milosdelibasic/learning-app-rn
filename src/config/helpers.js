@@ -3,3 +3,5 @@ export const hitBox20 = { left: 20, right: 20, top: 20, bottom: 20 };
 
 export const numberWithSpaces = x =>
   x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
+export const logger = log => __DEV__ && console.log(log);

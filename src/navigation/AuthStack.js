@@ -1,17 +1,22 @@
-import React from 'react';
-import {View, StyleSheet, TouchableOpacity, Dimensions} from 'react-native';
-import {noHeader} from '../config/navigationOptions';
-import {authStack} from '../config/navigator';
-import {createStackNavigator} from '@react-navigation/stack';
-import AuthInit from '../screens/auth/authInit';
-import Login from '../screens/auth/login';
-import Register from '../screens/auth/register';
-import ForgotPassword from '../screens/auth/forgotPassword';
-import CheckEmail from '../screens/auth/checkEmail';
-import About from '../screens/auth/about';
+import React from "react";
+import { StyleSheet, Dimensions } from "react-native";
+
+import AuthInit from "@screens/Auth/AuthInit";
+import Login from "@screens/Auth/Login";
+import Register from "@screens/Auth/Register";
+import ForgotPassword from "@screens/Auth/ForgotPassword";
+import CheckEmail from "@screens/Auth/CheckEmail";
+import About from "@screens/Auth/About";
+
+import { createStackNavigator } from "@react-navigation/stack";
+
+import { noHeader } from "@config/navigationOptions";
+import { authStack } from "@config/navigator";
 
 const Stack = createStackNavigator();
-const {width, height} = Dimensions.get('screen');
+
+const { width, height } = Dimensions.get("screen");
+
 const AuthStack = ({}) => {
   return (
     <Stack.Navigator

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   StyleSheet,
   View,
@@ -5,10 +6,16 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
-import React from "react";
+
 import { useDispatch, useSelector } from "react-redux";
-import { actions, modalSelector } from "../../modules/modal/reducer";
-import Text from "../text";
+import Icon from "react-native-vector-icons/Ionicons";
+
+import Text from "@components/Text";
+import Button from "@components/Button";
+import Row from "@components/Row";
+
+import { actions, modalSelector } from "@modules/modal/reducer";
+
 import {
   gray100,
   gray200,
@@ -16,13 +23,10 @@ import {
   gray600,
   grayDark,
   warning,
-} from "../../config/colors";
-import { borderRadius, margin, padding } from "../../config/spacing";
-import Row from "../row";
-import Icon from "react-native-vector-icons/Ionicons";
-import { sizes } from "../../config/fonts";
-import { hitBox10 } from "../../config/helpers";
-import Button from "../button";
+} from "@config/colors";
+import { borderRadius, margin, padding } from "@config/spacing";
+import { sizes } from "@config/fonts";
+import { hitBox10 } from "@config/helpers";
 
 const { width, height } = Dimensions.get("screen");
 

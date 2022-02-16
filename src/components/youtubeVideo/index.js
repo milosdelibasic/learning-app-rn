@@ -1,9 +1,12 @@
-import { ActivityIndicator, StyleSheet, View } from "react-native";
 import React, { useCallback, useState } from "react";
-import { gray50 } from "../../config/colors";
-import { sizes } from "../../config/fonts";
-import { margin } from "../../config/spacing";
+import { ActivityIndicator, StyleSheet, View } from "react-native";
+
 import YoutubePlayer from "react-native-youtube-iframe";
+
+import { gray50 } from "@config/colors";
+import { sizes } from "@config/fonts";
+import { margin } from "@config/spacing";
+import { logger } from "@config/helpers";
 
 const YoutubeVideo = ({ videoId = "DHjqpvDnNGE" }) => {
   const [videoLoading, setVideoLoading] = useState(true);
@@ -16,7 +19,7 @@ const YoutubeVideo = ({ videoId = "DHjqpvDnNGE" }) => {
   }, []);
 
   const handleYoutubeError = e => {
-    console.log(e);
+    logger(e);
   };
 
   return (

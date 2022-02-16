@@ -1,17 +1,24 @@
 import React from "react";
 import { Dimensions, View, TouchableOpacity, Pressable } from "react-native";
-import { padding } from "../config/spacing";
-import Text from "../components/text";
-import * as RootNavigation from "../navigation/RootNavigation";
-import { mainStack, profileStack } from "./navigator";
+
 import Icon from "react-native-vector-icons/Ionicons";
 import MaterialIcon from "react-native-vector-icons/MaterialCommunityIcons";
-import { hitBox20 } from "../config/helpers";
-import { gray300, gray400, gray50, gray800, gray900, grayDark } from "./colors";
+
+import Text from "@components/Text";
+
+import * as RootNavigation from "@navigation/RootNavigation";
+import { padding } from "@config/spacing";
+import { hitBox20 } from "@config/helpers";
+import {
+  gray300,
+  gray400,
+  gray50,
+  gray800,
+  gray900,
+  grayDark,
+} from "@config/colors";
 
 const { width, height } = Dimensions.get("screen");
-
-// console.log("store", store);
 
 export const mainOptions = {
   headerShown: true,

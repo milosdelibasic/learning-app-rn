@@ -1,16 +1,18 @@
-import { Dimensions, StyleSheet, TouchableOpacity, View } from "react-native";
 import React from "react";
-import Text from "../text";
-import { borderRadius, margin, padding } from "../../config/spacing";
-import { gray200, grayDark } from "../../config/colors";
-import FastImage from "react-native-fast-image";
-import Column from "../column";
-import Icon from "react-native-vector-icons/Ionicons";
-import Row from "../row";
-import { sizes } from "../../config/fonts";
-import Button from "../button";
-import { mainStack } from "../../config/navigator";
+import { Dimensions, StyleSheet, TouchableOpacity, View } from "react-native";
+
 import { useNavigation } from "@react-navigation/native";
+import FastImage from "react-native-fast-image";
+import Icon from "react-native-vector-icons/Ionicons";
+
+import Text from "@components/Text";
+import Row from "@components/Row";
+import Button from "@components/Button";
+
+import { borderRadius, margin, padding } from "@config/spacing";
+import { gray200, grayDark } from "@config/colors";
+import { sizes } from "@config/fonts";
+import { mainStack } from "@config/navigator";
 
 const { width } = Dimensions.get("screen");
 

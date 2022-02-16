@@ -6,17 +6,21 @@ import {
   BackHandler,
 } from "react-native";
 import React from "react";
+
 import { useDispatch, useSelector } from "react-redux";
-import Text from "../../components/text";
-import { grayDark } from "../../config/colors";
-import { padding } from "../../config/spacing";
-import { authSelector } from "../../modules/auth/reducer";
-import Row from "../../components/row";
-import ContinueLearningContainer from "../../components/containers/continueLearningContainer";
-import FeaturedCoursesContainer from "../../components/containers/featuredCoursesContainer";
-import { mainStack } from "../../config/navigator";
-import { actions as modalActions } from "../../modules/modal/reducer";
-import { useAndroidBackButton } from "../../../hooks/useAndroidBackButton";
+
+import Text from "@components/Text";
+import Row from "@components/Row";
+import ContinueLearningContainer from "@components/containers/ContinueLearningContainer";
+import FeaturedCoursesContainer from "@components/containers/FeaturedCoursesContainer";
+
+import { useAndroidBackButton } from "@hooks/useAndroidBackButton";
+
+import { authSelector } from "@modules/auth/reducer";
+import { actions as modalActions } from "@modules/modal/reducer";
+
+import { grayDark } from "@config/colors";
+import { padding } from "@config/spacing";
 
 const Home = ({ navigation }) => {
   const { user } = useSelector(authSelector);

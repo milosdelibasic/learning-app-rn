@@ -3,9 +3,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Config from "react-native-config";
 import AuthService from "../auth/service";
 import { actions } from "../auth/reducer";
+import { logger } from "@config/helpers";
 const local = Config.SERVER_API;
 // const remote = API_HOST;
-console.log(local);
+logger(local);
 const instance = axios.create({
   baseURL: local,
   headers: {
@@ -33,7 +34,7 @@ instance.interceptors.request.use(
     return config;
   },
   error => {
-    console.log(error, "ERROR");
+    logger(error, "ERROR");
     Promise.reject(error);
   },
 );

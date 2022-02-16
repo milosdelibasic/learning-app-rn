@@ -1,13 +1,17 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { margin, padding } from "../../../config/spacing";
-import Row from "../../row";
-import NumberContainer from "../numberContainer";
-import Divider from "../../divider";
+import { StyleSheet, View } from "react-native";
+
 import Icon from "react-native-vector-icons/FontAwesome5";
 import FAIcon from "react-native-vector-icons/FontAwesome";
-import { gray200, gray400 } from "../../../config/colors";
-import { sizes } from "../../../config/fonts";
+
+import Text from "@components/Text";
+import Row from "@components/Row";
+import Divider from "@components/Divider";
+import NumberContainer from "../NumberContainer";
+
+import { margin, padding } from "@config/spacing";
+import { gray200, gray400 } from "@config/colors";
+import { sizes } from "@config/fonts";
 
 const CourseResource = ({
   resource = { type: "pdf", title: "Cheatsheet" },

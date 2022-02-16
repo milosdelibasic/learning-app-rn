@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@*": ["./src/*"],
+      "@components": ["./src/components/*"],
+      "@screens": ["./src/screens/*"],
+      "@utils": ["./src/utils/*"],
+      "@navigations": ["./src/navigation/*"],
+      "@modules": ["./src/modules/*"],
+      "@config": ["./src/config/*"],
+      "@hooks": ["./hooks/*"],
+      "@images": ["./assets/images/*"],
+      "@navigation": ["./src/navigation/*"]
+    }
+  }
+}

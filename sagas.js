@@ -1,6 +1,6 @@
-import {all} from 'redux-saga/effects';
-import authSaga from './src/modules/auth/saga';
-import generalSaga from './src/modules/general/saga';
+import { all } from "redux-saga/effects";
+import authSaga from "@modules/auth/saga";
+import generalSaga from "@modules/general/saga";
 
 /**
  * Root saga

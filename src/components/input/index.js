@@ -1,18 +1,14 @@
 import React from "react";
 import { StyleSheet } from "react-native";
+
 import { TextInput } from "react-native-paper";
-import {
-  gray100,
-  gray200,
-  gray50,
-  grayDark,
-  warning,
-} from "../../config/colors";
-import { borderRadius, margin } from "../../config/spacing";
-import Text from "../text";
+
+import Text from "@components/Text";
+
+import { gray100, gray200, gray50, grayDark, warning } from "@config/colors";
+import { borderRadius, margin } from "@config/spacing";
 
 const Input = ({ submit, style, ...rest }) => {
-  console.log(rest);
   return (
     <>
       <TextInput

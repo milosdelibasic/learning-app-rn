@@ -1,13 +1,16 @@
-import { StyleSheet, View } from "react-native";
 import React from "react";
-import Row from "../../row";
+import { StyleSheet } from "react-native";
+
 import Icon from "react-native-vector-icons/FontAwesome5";
-import Text from "../../text";
-import { margin, padding } from "../../../config/spacing";
-import { gray200 } from "../../../config/colors";
-import { sizes } from "../../../config/fonts";
-import Divider from "../../divider";
-import NumberContainer from "../numberContainer";
+
+import Text from "@components/Text";
+import Row from "@components/Row";
+import Divider from "@components/Divider";
+import NumberContainer from "../NumberContainer";
+
+import { margin, padding } from "@config/spacing";
+import { gray200 } from "@config/colors";
+import { sizes } from "@config/fonts";
 
 const CourseVideo = ({
   number = 1,

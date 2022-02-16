@@ -1,19 +1,20 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
-import {
-  backOptions,
-  mainOptions,
-  noHeader,
-} from "../config/navigationOptions";
-import { homeStack, mainStack } from "../config/navigator";
-import HomeStack from "./HomeStack";
+import { StyleSheet, Dimensions } from "react-native";
+
 import { createStackNavigator } from "@react-navigation/stack";
-import CourseInfo from "../screens/courses/courseInfo";
-import FeaturedCourses from "../screens/courses/featuredCourses";
+
+import CourseInfo from "@screens/Courses/courseInfo";
+import FeaturedCourses from "@screens/Courses/featuredCourses";
+import HomeStack from "./HomeStack";
+
+import { noHeader } from "@config/navigationOptions";
+import { mainStack } from "@config/navigator";
 
 const Stack = createStackNavigator();
+
 const { width, height } = Dimensions.get("screen");
-const MainStack = ({}) => {
+
+const MainStack = () => {
   return (
     <Stack.Navigator
       initialRouteName={mainStack.home}

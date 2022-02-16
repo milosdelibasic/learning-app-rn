@@ -1,14 +1,17 @@
-import { View, StyleSheet, Dimensions } from "react-native";
 import React from "react";
-import Text from "../text";
-import { gray200, gray300, gray400, grayDark } from "../../config/colors";
-import { borderRadius, margin, padding } from "../../config/spacing";
+import { View, StyleSheet, Dimensions } from "react-native";
+
 import FastImage from "react-native-fast-image";
-import Row from "../row";
 import { ProgressBar } from "react-native-paper";
-import Column from "../column";
-import { verticalScale } from "../../config/fonts";
-import Button from "../button";
+
+import Text from "@components/Text";
+import Row from "@components/Row";
+import Column from "@components/Column";
+import Button from "@components/Button";
+
+import { gray200, gray300, grayDark } from "@config/colors";
+import { borderRadius, margin, padding } from "@config/spacing";
+import { verticalScale } from "@config/fonts";
 
 const { width } = Dimensions.get("screen");
 
