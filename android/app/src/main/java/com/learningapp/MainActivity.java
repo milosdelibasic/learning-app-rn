@@ -1,6 +1,8 @@
 package com.learningapp;
 
 import com.facebook.react.ReactActivity;
+import com.facebook.react.ReactActivityDelegate;
+import com.zoontek.rnbootsplash.RNBootSplash;
 
 public class MainActivity extends ReactActivity {
 
@@ -10,6 +12,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
+    RNBootSplash.init(MainActivity.this);
     return "PhantoxLearn";
   }
 }

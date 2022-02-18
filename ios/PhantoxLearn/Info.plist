@@ -36,26 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
-	<key>bugsnag</key>
-	<dict>
-		<key>apiKey</key>
-		<string>d25e29015e587da2a990052504a19a5e</string>
-	</dict>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>OpenSans-Bold.ttf</string>
@@ -79,5 +60,24 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>BootSplash</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>bugsnag</key>
+	<dict>
+		<key>apiKey</key>
+		<string>d25e29015e587da2a990052504a19a5e</string>
+	</dict>
 </dict>
 </plist>

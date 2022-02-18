@@ -6,6 +6,11 @@ platform :ios, '11.0'
 target 'PhantoxLearn' do
   config = use_native_modules!
 
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+
+  # For extensions without React dependencies
+  pod 'react-native-config/Extension', :path => '../node_modules/react-native-config'
+
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   permissions_path = '../node_modules/react-native-permissions/ios'
 
