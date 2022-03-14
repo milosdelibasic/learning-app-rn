@@ -1,10 +1,10 @@
-import { call, put, takeEvery } from "redux-saga/effects";
+import { call, delay, put, takeEvery } from "redux-saga/effects";
+import RNBootSplash from "react-native-bootsplash";
 
 import { handleError } from "@utils/error";
 import { logger } from "@config/helpers";
 import { actions } from "./reducer";
 import AuthService from "./service";
-
 function* registerSaga({ payload }) {
   try {
     logger("register payl", payload);
@@ -30,7 +30,8 @@ export function* onAppStartSaga({ payload }) {
   } catch (e) {
     logger("onAppStartSaga", e);
   } finally {
-    // yield call(RNSplash.hide);
+    yield delay(1000);
+    yield call(RNBootSplash.hide, { fade: true });
   }
 }
 

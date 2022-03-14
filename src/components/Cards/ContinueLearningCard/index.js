@@ -12,6 +12,7 @@ import Button from "@components/Button";
 import { gray200, gray300, grayDark } from "@config/colors";
 import { borderRadius, margin, padding } from "@config/spacing";
 import { verticalScale } from "@config/fonts";
+import { shadow10 } from "@config/shadows";
 
 const { width } = Dimensions.get("screen");
 
@@ -61,15 +62,8 @@ const styles = StyleSheet.create({
     borderRadius: borderRadius.large * 1.3,
     width: width / 1.5,
     height: width / 3.5,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 10,
+    ...shadow10,
+    overflow: "visible",
   },
   logo: {
     width: width / 3.5,

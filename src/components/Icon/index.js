@@ -1,5 +1,7 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import EvilIcon from "react-native-vector-icons/EvilIcons";
@@ -180,6 +182,29 @@ const Icon = ({
     }
   };
   return <>{renderIcon()}</>;
+};
+
+Icon.propTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.oneOf([
+    "ant",
+    "entypo",
+    "zocial",
+    "simple",
+    "octicon",
+    "material",
+    "materialC",
+    "ionicon",
+    "foundation",
+    "fa",
+    "fa5",
+    "fontisto",
+    "feather",
+    "evil",
+  ]).isRequired,
+  size: PropTypes.number,
+  color: PropTypes.string,
+  style: PropTypes.object,
 };
 
 export default Icon;

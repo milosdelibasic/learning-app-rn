@@ -6,6 +6,7 @@ import { actions } from "../auth/reducer";
 import { logger } from "@config/helpers";
 const local = Config.SERVER_API;
 // const remote = API_HOST;
+console.log("test");
 logger(local);
 const instance = axios.create({
   baseURL: local,

@@ -1,23 +1,119 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import {
+  ActionSheetIOS,
+  Platform,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
 
 import Home from "@screens/Home";
 import Profile from "@screens/Profile";
+import Learn from "@screens/Learn";
 
 import Icon from "@components/Icon";
+import DotsMenu from "@components/bottomSheet/dotsMenu";
 
-import { homeStack } from "@config/navigator";
+import { actions } from "@modules/bottomSheet/reducer";
+
+import { homeStack, mainStack } from "@config/navigator";
 import { mainOptions, tab } from "@config/navigationOptions";
+import { hitBox20 } from "@config/helpers";
+import { gray200, gray50 } from "@config/colors";
+
+import Dots from "@images/icons/dots.svg";
+import MenuIcon from "@images/icons/menu.svg";
 
 const Tab = createBottomTabNavigator();
 
 const HomeStack = () => {
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  const handleSettingsNavigation = i => {
+    switch (i) {
+      case 1:
+        navigation.navigate(mainStack.settings);
+        break;
+      case 2:
+        navigation.navigate(mainStack.share);
+        break;
+      case 3:
+        navigation.navigate(mainStack.invite);
+        break;
+      case 4:
+        navigation.navigate(mainStack.rate);
+        break;
+      case 5:
+        navigation.navigate(mainStack.FAQ);
+        break;
+      case 6:
+        navigation.navigate(mainStack.ToS);
+        break;
+      case 7:
+        navigation.navigate(mainStack.contact);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const onDotsPressHandler = () => {
+    if (Platform.OS === "android") {
+      dispatch(
+        actions.open(
+          <DotsMenu handleSettingsNavigation={handleSettingsNavigation} />,
+        ),
+      );
+    }
+    if (Platform.OS === "ios") {
+      ActionSheetIOS.showActionSheetWithOptions(
+        {
+          options: [
+            "Cancel",
+            "Settings",
+            "Share",
+            "Invite",
+            "Rate",
+            "FAQ",
+            "Terms of Service & Privacy Policy",
+            "Contact Us",
+          ],
+          cancelButtonIndex: 0,
+          tintColor: gray200,
+          userInterfaceStyle: "dark",
+        },
+        buttonIndex => {
+          handleSettingsNavigation(buttonIndex);
+        },
+      );
+    }
+  };
+
   return (
     <Tab.Navigator
       initialRouteName={homeStack.home}
-      screenOptions={{ ...tab, ...mainOptions }}>
+      screenOptions={{
+        ...tab,
+        ...mainOptions,
+        headerLeft: () => (
+          <TouchableOpacity
+            hitSlop={hitBox20}
+            onPress={() => {
+              navigation.openDrawer();
+            }}>
+            <MenuIcon color={gray50} height={24} width={24} />
+          </TouchableOpacity>
+        ),
+        headerRight: () => (
+          <TouchableOpacity hitSlop={hitBox20} onPress={onDotsPressHandler}>
+            <Dots height={26} width={5} color={gray50} />
+          </TouchableOpacity>
+        ),
+      }}>
       <Tab.Screen
         name={homeStack.home}
         component={Home}
@@ -25,8 +121,8 @@ const HomeStack = () => {
           tabBarLabel: "Home",
           tabBarIcon: ({ focused, color, size }) => (
             <Icon
-              type="fa5"
-              name={focused ? "home" : "home"}
+              type="ionicon"
+              name={focused ? "home" : "home-outline"}
               size={size}
               color={color}
               style={styles.icon}
@@ -39,11 +135,11 @@ const HomeStack = () => {
         name={homeStack.coding}
         component={Profile}
         options={{
-          tabBarLabel: "Coding",
+          tabBarLabel: "Practice",
           tabBarIcon: ({ focused, color, size }) => (
             <Icon
-              type="feather"
-              name={focused ? "code" : "code"}
+              type="ionicon"
+              name={focused ? "code-slash" : "code-slash-outline"}
               size={size}
               color={color}
               style={styles.icon}
@@ -53,13 +149,13 @@ const HomeStack = () => {
       />
       <Tab.Screen
         name={homeStack.learn}
-        component={Profile}
+        component={Learn}
         options={{
           tabBarLabel: "Learn",
           tabBarIcon: ({ focused, color, size }) => (
             <Icon
-              type="fa5"
-              name={focused ? "book" : "book"}
+              type="ionicon"
+              name={focused ? "book" : "book-outline"}
               size={size}
               color={color}
               style={styles.icon}
@@ -75,7 +171,7 @@ const HomeStack = () => {
           tabBarIcon: ({ focused, color, size }) => (
             <Icon
               type="ionicon"
-              name={focused ? "chatbubble" : "chatbubble"}
+              name={focused ? "md-chatbubbles" : "md-chatbubbles-outline"}
               size={size}
               color={color}
               style={styles.icon}
@@ -90,8 +186,8 @@ const HomeStack = () => {
           tabBarLabel: "Profile",
           tabBarIcon: ({ focused, color, size }) => (
             <Icon
-              type="fa5"
-              name={focused ? "user-alt" : "user-alt"}
+              type="fa"
+              name={focused ? "user" : "user-o"}
               size={size}
               color={color}
               style={styles.icon}

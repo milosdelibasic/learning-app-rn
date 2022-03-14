@@ -10,5 +10,7 @@ export const gray700 = "#334E68";
 export const gray800 = "#243B53";
 export const gray900 = "#102A43";
 export const grayDark = "#0B1D2E";
+export const light = "#44C7F5";
+export const lightBlue = "#49C8F5";
 export const warning = "#CC0000";
 export const success = "#4BB543";

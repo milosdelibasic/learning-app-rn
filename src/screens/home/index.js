@@ -8,6 +8,7 @@ import {
 import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
+import Config from "react-native-config";
 
 import Text from "@components/Text";
 import Row from "@components/Row";
@@ -19,13 +20,18 @@ import { useAndroidBackButton } from "@hooks/useAndroidBackButton";
 import { authSelector } from "@modules/auth/reducer";
 import { actions as modalActions } from "@modules/modal/reducer";
 
-import { grayDark } from "@config/colors";
+import { gray600, gray700, gray800, grayDark } from "@config/colors";
 import { padding } from "@config/spacing";
 import { mainStack } from "@config/navigator";
+import HomeRow from "./homeRow";
+import BecomePrime from "./becomePrime";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 const Home = ({ navigation }) => {
   const { user } = useSelector(authSelector);
   const dispatch = useDispatch();
+
+  console.log(Config.getConstants());
 
   const handleBackPress = () => {
     dispatch(
@@ -49,29 +55,32 @@ const Home = ({ navigation }) => {
   useAndroidBackButton(handleBackPress);
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-      <View style={styles.paddingContainer}>
-        <Text white h5 bold>
-          Welcome, {user?.fullName}!
-        </Text>
-        <Row style={styles.row}>
-          <Text>Continue Learning</Text>
-          <TouchableOpacity>
-            <Text>See all</Text>
-          </TouchableOpacity>
-        </Row>
-      </View>
-      <ContinueLearningContainer />
-      <View style={styles.paddingContainer}>
-        <Row style={styles.row}>
-          <Text>Featured Courses</Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate(mainStack.featuredCourses)}>
-            <Text>See all</Text>
-          </TouchableOpacity>
-        </Row>
-      </View>
-      <FeaturedCoursesContainer />
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={styles.container}
+      bounces={false}>
+      <Row style={styles.lineContainer}>
+        <View style={styles.line} />
+        <View>
+          <View style={styles.paddingContainer}>
+            <Text white h5 bold>
+              Welcome, {user?.fullName}!
+            </Text>
+          </View>
+          <View style={styles.primeContainer}>
+            <BecomePrime />
+          </View>
+          <HomeRow title="Continue Learning" />
+          <ContinueLearningContainer />
+
+          <HomeRow
+            title="Featured Courses"
+            btnAction={() => navigation.navigate(mainStack.featuredCourses)}
+            backgroundColor={gray800}
+          />
+          <FeaturedCoursesContainer />
+        </View>
+      </Row>
     </ScrollView>
   );
 };
@@ -81,11 +90,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: grayDark,
   },
+  lineContainer: {
+    paddingLeft: padding.large,
+  },
+  line: {
+    backgroundColor: gray600,
+    width: StyleSheet.hairlineWidth,
+    height: "100%",
+  },
   paddingContainer: {
     padding: padding.large,
   },
-  row: {
-    paddingTop: padding.base,
+  primeContainer: {
+    paddingRight: padding.large,
   },
 });
 

@@ -1,37 +1,53 @@
-import React from "react";
-import { StyleSheet, useWindowDimensions, View } from "react-native";
+import React, { useState } from "react";
+import { ScrollView, StyleSheet, View } from "react-native";
 
-import { SceneMap, TabView } from "react-native-tab-view";
+import Text from "@components/Text";
+import SelectCategory from "./selectCategory";
+import CourseCard from "./courseCard";
 
-import { gray900 } from "@config/colors";
+import { grayDark } from "@config/colors";
+import { padding } from "@config/spacing";
+import { featuredCourses } from "../../../dummyData/featuredCourses";
 
 const FeaturedCourses = () => {
-  const FirstRoute = () => (
-    <View style={{ flex: 1, backgroundColor: "#ff4081" }} />
-  );
-
-  const SecondRoute = () => (
-    <View style={{ flex: 1, backgroundColor: "#673ab7" }} />
-  );
-
-  const renderScene = SceneMap({
-    first: FirstRoute,
-    second: SecondRoute,
+  const [selected, setSelected] = useState({
+    type: "all",
+    name: "All",
   });
-  const layout = useWindowDimensions();
 
-  const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
-    { key: "first", title: "First" },
-    { key: "second", title: "Second" },
-  ]);
   return (
-    <TabView
-      navigationState={{ index, routes }}
-      renderScene={renderScene}
-      onIndexChange={setIndex}
-      initialLayout={{ width: layout.width }}
-    />
+    <View style={styles.container}>
+      <View style={styles.scrollContainer}>
+        <SelectCategory selected={selected} setSelected={setSelected} />
+        <ScrollView
+          style={styles.innerContainer}
+          showsVerticalScrollIndicator={false}>
+          <Text h4 semiBold>
+            {selected.name}
+          </Text>
+          {selected.type === "all" &&
+            featuredCourses?.map((course, index) => (
+              <CourseCard
+                course={course}
+                key={course?._id}
+                last={featuredCourses?.length === index + 1}
+              />
+            ))}
+          {selected.type !== "all" &&
+            featuredCourses
+              ?.filter(singleCourse =>
+                singleCourse.type.includes(selected.type),
+              )
+              .map((course, index) => (
+                <CourseCard
+                  course={course}
+                  key={course?._id}
+                  last={featuredCourses?.length === index + 1}
+                />
+              ))}
+        </ScrollView>
+      </View>
+    </View>
   );
 };
 
@@ -40,6 +56,12 @@ export default FeaturedCourses;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: gray900,
+    backgroundColor: grayDark,
+  },
+  scrollContainer: {
+    paddingVertical: padding.large,
+  },
+  innerContainer: {
+    padding: padding.large,
   },
 });

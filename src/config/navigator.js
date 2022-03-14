@@ -8,6 +8,13 @@ export const mainStack = {
   profile: "ProfileStack",
   courseInfo: "CourseInfoScreen",
   featuredCourses: "FeaturedCoursesScreen",
+  settings: "SettingsScreen",
+  share: "ShareScreen",
+  invite: "InviteScreen",
+  rate: "RateScreen",
+  FAQ: "FAQScreen",
+  ToS: "ToSScreen",
+  contact: "ContactScreen",
 };
 
 export const authStack = {
