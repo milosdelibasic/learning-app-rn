@@ -99,6 +99,7 @@ const HomeStack = () => {
       screenOptions={{
         ...tab,
         ...mainOptions,
+        tabBarShowLabel: false,
         headerLeft: () => (
           <TouchableOpacity
             hitSlop={hitBox20}
@@ -118,7 +119,6 @@ const HomeStack = () => {
         name={homeStack.home}
         component={Home}
         options={{
-          tabBarLabel: "Home",
           tabBarIcon: ({ focused, color, size }) => (
             <Icon
               type="ionicon"
@@ -135,7 +135,6 @@ const HomeStack = () => {
         name={homeStack.coding}
         component={Profile}
         options={{
-          tabBarLabel: "Practice",
           tabBarIcon: ({ focused, color, size }) => (
             <Icon
               type="ionicon"
@@ -151,7 +150,6 @@ const HomeStack = () => {
         name={homeStack.learn}
         component={Learn}
         options={{
-          tabBarLabel: "Learn",
           tabBarIcon: ({ focused, color, size }) => (
             <Icon
               type="ionicon"
@@ -167,7 +165,6 @@ const HomeStack = () => {
         name={homeStack.community}
         component={Profile}
         options={{
-          tabBarLabel: "Community",
           tabBarIcon: ({ focused, color, size }) => (
             <Icon
               type="ionicon"
@@ -183,7 +180,6 @@ const HomeStack = () => {
         name={homeStack.profile}
         component={Profile}
         options={{
-          tabBarLabel: "Profile",
           tabBarIcon: ({ focused, color, size }) => (
             <Icon
               type="fa"
@@ -203,6 +199,7 @@ export default HomeStack;
 
 const styles = StyleSheet.create({
   icon: {
-    // marginTop: 10,
+    // marginTop: 10,al
+    // marginBottom: 5,
   },
 });

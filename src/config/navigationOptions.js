@@ -75,7 +75,7 @@ export const backOptions = {
 
 export const tab = {
   tabBarStyle: {
-    height: height / 11.5,
+    height: height / 15,
     backgroundColor: gray900,
     borderTopColor: gray900,
     position: "absolute",
