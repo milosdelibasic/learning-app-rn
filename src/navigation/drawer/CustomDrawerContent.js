@@ -50,7 +50,7 @@ const CustomDrawerContent = () => {
           small
           style={styles.primeButton}
         />
-        <Divider spacing={margin.base} />
+        <Divider spacing={margin.base} backgroundColor={gray900} />
         <Row>
           <Row spacing="flex-start" style={styles.card}>
             <Icon type="fa5" name="coins" style={styles.icon} size={sizes.h4} />
@@ -86,7 +86,7 @@ const CustomDrawerContent = () => {
         <DrawerListItem title="History" icon="history" />
       </View>
       <View>
-        <Divider spacing={margin.base} />
+        <Divider spacing={margin.base} backgroundColor={gray900} />
         <DrawerListItem
           title="Settings"
           icon="settings"
