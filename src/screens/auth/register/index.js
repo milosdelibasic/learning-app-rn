@@ -43,8 +43,8 @@ const Register = () => {
     <View style={styles.container}>
       <Text>Register</Text>
       <Input submit={submit} {...email} keyboardType="email-address" />
-      <Input submit={submit} {...password} />
-      <Input submit={submit} {...confirmPassword} />
+      <Input submit={submit} {...password} secureTextEntry />
+      <Input submit={submit} {...confirmPassword} secureTextEntry />
       <Button label="Submit" primary large onPress={onSubmitHandler} />
     </View>
   );

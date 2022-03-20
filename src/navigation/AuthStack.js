@@ -10,7 +10,7 @@ import About from "@screens/Auth/About";
 
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { noHeader } from "@config/navigationOptions";
+import { noHeader, backOptions } from "@config/navigationOptions";
 import { authStack } from "@config/navigator";
 
 const Stack = createStackNavigator();
@@ -19,18 +19,37 @@ const { width, height } = Dimensions.get("screen");
 
 const AuthStack = ({}) => {
   return (
-    <Stack.Navigator
-      initialRouteName={authStack.authInit}
-      screenOptions={noHeader}>
-      <Stack.Screen name={authStack.authInit} component={AuthInit} />
-      <Stack.Screen name={authStack.login} component={Login} />
-      <Stack.Screen name={authStack.register} component={Register} />
+    <Stack.Navigator initialRouteName={authStack.authInit}>
+      <Stack.Screen
+        name={authStack.authInit}
+        component={AuthInit}
+        options={noHeader}
+      />
+      <Stack.Screen
+        name={authStack.login}
+        component={Login}
+        options={backOptions}
+      />
+      <Stack.Screen
+        name={authStack.register}
+        component={Register}
+        options={backOptions}
+      />
       <Stack.Screen
         name={authStack.forgotPassword}
         component={ForgotPassword}
+        options={backOptions}
       />
-      <Stack.Screen name={authStack.checkEmail} component={CheckEmail} />
-      <Stack.Screen name={authStack.about} component={About} />
+      <Stack.Screen
+        name={authStack.checkEmail}
+        component={CheckEmail}
+        options={backOptions}
+      />
+      <Stack.Screen
+        name={authStack.about}
+        component={About}
+        options={backOptions}
+      />
     </Stack.Navigator>
   );
 };

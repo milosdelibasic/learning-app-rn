@@ -1,37 +1,33 @@
-import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { StyleSheet, View } from "react-native";
 
-import {
-  BottomSheetModal,
+import BottomSheet, {
   BottomSheetView,
   useBottomSheetDynamicSnapPoints,
 } from "@gorhom/bottom-sheet";
-import { useDispatch, useSelector } from "react-redux";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import CustomHandle from "./customHandle";
 import CustomBackdrop from "./customBackdrop";
 
-import { actions, bottomSheetSelector } from "@modules/bottomSheet/reducer";
-
 import { gray600, gray800 } from "@config/colors";
 import { padding } from "@config/spacing";
+import { useSelector } from "react-redux";
+import { bottomSheetSelector } from "@modules/bottomSheet/reducer";
 
 const BottomSheetComponent = ({
-  initialSnapIndex = 1,
+  initialSnapIndex = -1,
   snapPoints: customSnapPoints,
 }) => {
+  const [index, setIndex] = useState(initialSnapIndex);
+
   const bottomSheetRef = useRef();
 
   const insets = useSafeAreaInsets();
 
-  const dispatch = useDispatch();
-  const { isOpen, content } = useSelector(bottomSheetSelector);
+  // const { isOpen, content } = useSelector(bottomSheetSelector);
 
-  const snapPoints = useMemo(
-    () => customSnapPoints || [1, "CONTENT_HEIGHT"],
-    [],
-  );
+  const snapPoints = customSnapPoints || ["CONTENT_HEIGHT"];
 
   const {
     animatedHandleHeight,
@@ -41,23 +37,21 @@ const BottomSheetComponent = ({
   } = useBottomSheetDynamicSnapPoints(snapPoints);
 
   const handleSheetChanges = useCallback(i => {
+    setIndex(i);
     if (i === -1) {
-      dispatch(actions.close());
-    }
-    if (i === 0 && !customSnapPoints) {
-      dispatch(actions.close());
+      // closeBottomSheet();
     }
   }, []);
 
-  useEffect(() => {
-    isOpen && bottomSheetRef.current?.present();
-    !isOpen && bottomSheetRef.current?.dismiss();
-  }, [isOpen]);
+  // useEffect(() => {
+  //   isOpen && bottomSheetRef?.current?.expand();
+  //   !isOpen && bottomSheetRef?.current?.close();
+  // }, [isOpen]);
 
   return (
-    <BottomSheetModal
+    <BottomSheet
       ref={bottomSheetRef}
-      index={initialSnapIndex}
+      index={index}
       snapPoints={customSnapPoints || animatedSnapPoints}
       handleHeight={animatedHandleHeight}
       contentHeight={animatedContentHeight}
@@ -74,10 +68,10 @@ const BottomSheetComponent = ({
               paddingBottom: insets.bottom > 0 ? insets.bottom : padding.large,
             },
           ]}>
-          {content}
+          {/* {content} */}
         </View>
       </BottomSheetView>
-    </BottomSheetModal>
+    </BottomSheet>
   );
 };
 

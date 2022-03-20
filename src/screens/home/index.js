@@ -62,11 +62,7 @@ const Home = ({ navigation }) => {
       <Row style={styles.lineContainer}>
         <View style={styles.line} />
         <View>
-          <View style={styles.paddingContainer}>
-            <Text white h5 bold>
-              Welcome, {user?.fullName}!
-            </Text>
-          </View>
+          <View style={styles.paddingContainer} />
           <View style={styles.primeContainer}>
             <BecomePrime />
           </View>

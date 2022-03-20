@@ -20,11 +20,16 @@ import { mainStack } from "@config/navigator";
 
 import PhantoxLogo from "@images/logos/PhantoX.svg";
 import defaultAvatar from "@images/defaultAvatar.png";
+import { actions } from "@modules/auth/reducer";
+import { useDispatch } from "react-redux";
+import { DrawerActions } from "@react-navigation/native";
 
 const { width } = Dimensions.get("window");
 
 const CustomDrawerContent = () => {
   const navigation = useNavigation();
+
+  const dispatch = useDispatch();
 
   return (
     <SafeAreaView style={[styles.container]}>
@@ -92,7 +97,14 @@ const CustomDrawerContent = () => {
           icon="settings"
           onPress={() => navigation.navigate(mainStack.settings)}
         />
-        <DrawerListItem title="Logout" icon="logout" />
+        <DrawerListItem
+          title="Logout"
+          icon="logout"
+          onPress={() => {
+            dispatch(actions.signOut());
+            navigation.dispatch(DrawerActions.closeDrawer());
+          }}
+        />
       </View>
     </SafeAreaView>
   );

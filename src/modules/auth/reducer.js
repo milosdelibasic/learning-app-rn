@@ -23,9 +23,20 @@ export const authSlice = createSlice({
       state.pending = true;
     },
     loginSuccess: (state, action) => {
+      console.log("ac", action.payload);
       state.isLogin = true;
       state.pending = false;
       state.user = action.payload;
+    },
+    signOut: state => {
+      state.user = {};
+      state.isLogin = false;
+    },
+
+    loginFailed: state => {
+      state.isLogin = false;
+      state.pending = false;
+      state.user = {};
     },
     failed: state => {
       state.pending = false;
