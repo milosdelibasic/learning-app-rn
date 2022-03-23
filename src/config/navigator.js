@@ -15,6 +15,7 @@ export const mainStack = {
   FAQ: "FAQScreen",
   ToS: "ToSScreen",
   contact: "ContactScreen",
+  blog: "BlogScreen",
 };
 
 export const authStack = {

@@ -16,6 +16,7 @@ import Rate from "@screens/Rate";
 import FAQ from "@screens/FAQ";
 import ToS from "@screens/ToS";
 import Contact from "@screens/Contact";
+import Blog from "@screens/Blog";
 
 const Stack = createStackNavigator();
 
@@ -75,6 +76,11 @@ const MainStack = () => {
       <Stack.Screen
         name={mainStack.contact}
         component={Contact}
+        options={backOptions}
+      />
+      <Stack.Screen
+        name={mainStack.blog}
+        component={Blog}
         options={backOptions}
       />
     </Stack.Navigator>

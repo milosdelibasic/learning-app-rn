@@ -10,6 +10,7 @@ const Divider = ({
   color = gray400,
   backgroundColor = gray600,
   spacing = 0,
+  bottomSpacing = 0,
   withGradient = true,
 }) => {
   return withGradient ? (
@@ -30,6 +31,7 @@ const Divider = ({
           height: StyleSheet.hairlineWidth,
           marginVertical: spacing,
         },
+        bottomSpacing && { marginBottom: bottomSpacing },
         style,
       ]}
     />

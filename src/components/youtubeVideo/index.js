@@ -8,7 +8,7 @@ import { sizes } from "@config/fonts";
 import { margin } from "@config/spacing";
 import { logger } from "@config/helpers";
 
-const YoutubeVideo = ({ videoId = "DHjqpvDnNGE" }) => {
+const YoutubeVideo = ({ videoId = "DHjqpvDnNGE", style }) => {
   const [videoLoading, setVideoLoading] = useState(true);
   const [playing, setPlaying] = useState(false);
 
@@ -23,7 +23,7 @@ const YoutubeVideo = ({ videoId = "DHjqpvDnNGE" }) => {
   };
 
   return (
-    <View style={styles.videoContainer}>
+    <View style={[styles.videoContainer, style]}>
       {videoLoading && (
         <ActivityIndicator
           color={gray50}

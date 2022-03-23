@@ -20,16 +20,19 @@ import { useAndroidBackButton } from "@hooks/useAndroidBackButton";
 import { authSelector } from "@modules/auth/reducer";
 import { actions as modalActions } from "@modules/modal/reducer";
 
-import { gray600, gray700, gray800, grayDark } from "@config/colors";
+import { gray400, gray600, gray700, gray800, grayDark } from "@config/colors";
 import { padding } from "@config/spacing";
 import { mainStack } from "@config/navigator";
 import HomeRow from "./homeRow";
 import BecomePrime from "./becomePrime";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import BlogContainer from "@components/containers/BlogContainer";
 
 const Home = ({ navigation }) => {
   const { user } = useSelector(authSelector);
   const dispatch = useDispatch();
+
+  console.log(user);
 
   console.log(Config.getConstants());
 
@@ -75,6 +78,13 @@ const Home = ({ navigation }) => {
             backgroundColor={gray800}
           />
           <FeaturedCoursesContainer />
+
+          <HomeRow
+            title="Blog"
+            btnAction={() => navigation.navigate(mainStack.featuredCourses)}
+            backgroundColor={gray400}
+          />
+          <BlogContainer />
         </View>
       </Row>
     </ScrollView>
@@ -88,6 +98,7 @@ const styles = StyleSheet.create({
   },
   lineContainer: {
     paddingLeft: padding.large,
+    marginBottom: 100,
   },
   line: {
     backgroundColor: gray600,
