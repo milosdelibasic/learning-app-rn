@@ -149,10 +149,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: gray900,
-    marginVertical: padding.large,
     paddingHorizontal: padding.big,
   },
   title: {
     marginBottom: margin.big,
+    marginTop: margin.large,
   },
 });

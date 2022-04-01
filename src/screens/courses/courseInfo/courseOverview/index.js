@@ -41,9 +41,7 @@ const CourseOverview = ({ course, extraHeight }) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView
-        style={styles.scrollContainer}
-        showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Row style={styles.title}>
           <Text white h3 semiBold>
             {course.title}
@@ -119,12 +117,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: gray900,
-    marginVertical: padding.large,
     paddingHorizontal: padding.big,
   },
-  scrollContainer: {},
   title: {
     marginBottom: margin.base,
+    marginTop: padding.large,
   },
   iconSpacing: {
     marginRight: margin.large,
