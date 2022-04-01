@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Text from "@components/Text";
 import {
   amberYellow,
-  gray100,
   gray300,
   gray400,
   gray50,
@@ -17,6 +16,7 @@ import { sizes } from "@config/fonts";
 import Icon from "@components/Icon";
 import Clipboard from "@react-native-community/clipboard";
 import { handleSuccess } from "@utils/error";
+import { shadow3 } from "@config/shadows";
 
 const { height } = Dimensions.get("screen");
 
@@ -47,7 +47,7 @@ const Code = ({ content = "" }) => {
         <Icon
           type="ionicon"
           name="copy"
-          size={18}
+          size={22}
           color={gray50}
           onPress={onCopyHandler}
           style={styles.copyIcon}
@@ -85,7 +85,9 @@ const Code = ({ content = "" }) => {
                 {i + 1}
               </Text>
               <View style={styles.line} />
-              <Text h6>{line}</Text>
+              <Text h6 mono>
+                {line}
+              </Text>
             </Row>
           ))}
         </ScrollView>
@@ -102,22 +104,19 @@ const styles = StyleSheet.create({
     borderRadius: borderRadius.base,
     maxHeight: height / 4.5,
     overflow: "scroll",
+    ...shadow3,
   },
   header: {
     backgroundColor: gray400,
-    height: 26,
+    height: 30,
     paddingLeft: 8,
+    ...shadow3,
   },
   dot: {
     width: 14,
     height: 14,
     borderRadius: 14,
     marginRight: 8,
-  },
-  innerContainerStyle: {
-    // margin: padding.base,
-    // paddingBottom: -margin.base,
-    // height: "100%",
   },
   line: {
     width: StyleSheet.hairlineWidth,

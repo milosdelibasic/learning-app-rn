@@ -26,6 +26,7 @@ import { gray200, gray50 } from "@config/colors";
 
 import Dots from "@images/icons/dots.svg";
 import MenuIcon from "@images/icons/menu.svg";
+import PhantoxLogo from "@images/logos/PhantoX.svg";
 
 const Tab = createBottomTabNavigator();
 
@@ -114,6 +115,7 @@ const HomeStack = () => {
             <Dots height={26} width={5} color={gray50} />
           </TouchableOpacity>
         ),
+        headerTitle: () => <PhantoxLogo width={100} height={28} />,
       }}>
       <Tab.Screen
         name={homeStack.home}

@@ -1,12 +1,13 @@
-import {Dimensions, PixelRatio} from 'react-native';
+import { Dimensions, PixelRatio } from "react-native";
 
 // Font family
-const open_sans = 'OpenSans-Regular';
-const open_sans_light = 'OpenSans-Light';
-const open_sans_bold = 'OpenSans-Bold';
-const open_sans_semibold = 'OpenSans-SemiBold';
+const open_sans = "OpenSans-Regular";
+const open_sans_light = "OpenSans-Light";
+const open_sans_bold = "OpenSans-Bold";
+const open_sans_semibold = "OpenSans-SemiBold";
+const roboto_mono = "RobotoMono-ExtraLight";
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 const guidelineBaseWidth = 350;
 const guidelineBaseHeight = 680;
@@ -42,5 +43,9 @@ export default {
 
   semiBoldOpen: {
     fontFamily: open_sans_semibold,
+  },
+
+  robotoMono: {
+    fontFamily: roboto_mono,
   },
 };

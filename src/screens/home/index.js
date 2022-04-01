@@ -58,10 +58,7 @@ const Home = ({ navigation }) => {
   useAndroidBackButton(handleBackPress);
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      style={styles.container}
-      bounces={false}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <Row style={styles.lineContainer}>
         <View style={styles.line} />
         <View>

@@ -45,6 +45,7 @@ const getStyles = rest => {
     center,
     warning,
     link,
+    mono,
   } = rest;
 
   if (center) {
@@ -79,6 +80,9 @@ const getStyles = rest => {
   }
   if (uppercase) {
     containerStyles.push(styles.uppercase);
+  }
+  if (mono) {
+    containerStyles.push(styles.mono);
   }
 
   return containerStyles;
@@ -116,6 +120,9 @@ const styles = StyleSheet.create({
   },
   semiBold: {
     fontFamily: fonts.semiBoldOpen.fontFamily,
+  },
+  mono: {
+    fontFamily: fonts.robotoMono.fontFamily,
   },
   center: {
     textAlign: "center",

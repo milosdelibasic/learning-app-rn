@@ -29,7 +29,6 @@ export const mainOptions = {
   cardStyle: {
     backgroundColor: gray900,
   },
-  headerTitle: () => <PhantoxLogo width={100} height={28} />,
 
   headerLeftContainerStyle: {
     paddingLeft: padding.large * 1.2,
